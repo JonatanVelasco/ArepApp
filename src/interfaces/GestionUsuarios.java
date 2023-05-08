@@ -1,17 +1,26 @@
 
 package interfaces;
 
+import conexion.ConexionBD;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
-       DefaultTableModel modelo = new DefaultTableModel();
+     
+    ConexionBD cone;
+    DefaultTableModel modelo;
        
     public GestionUsuarios() {
         initComponents();
-        
-          Arepapp objectoArepapp = new Arepapp();
-        objectoArepapp.MostrarUsuario();
+        cone = new ConexionBD();
+        String[] columnNames = {"cedula ","nombre","apellido","direccion","celular","usuario","pass","codigo_rol"};
+        modelo = new DefaultTableModel(null, columnNames);
+        consultar();
+          
     }
 
     @SuppressWarnings("unchecked")
@@ -41,10 +50,9 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
-        txtcodigorol = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxrol = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        tabla1 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
 
         setClosable(true);
@@ -176,7 +184,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Codigo rol");
+        jLabel2.setText("Codigo");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(0, 130, 90, 30);
 
@@ -198,14 +206,12 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         });
         jPanel3.add(txtdireccion);
         txtdireccion.setBounds(190, 330, 165, 30);
-        jPanel3.add(txtcodigorol);
-        txtcodigorol.setBounds(470, 300, 170, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigos de roles disponibles", "Administrador-500", "Vendedor-501", "Domiciliario-502", "Cliente-503", " " }));
-        jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(410, 350, 230, 22);
+        cbxrol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigos de rol", "500", "501", "502", "503", " " }));
+        jPanel3.add(cbxrol);
+        cbxrol.setBounds(470, 302, 170, 30);
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -216,12 +222,12 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMouseClicked(evt);
+                tabla1MouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tabla);
+        jScrollPane2.setViewportView(tabla1);
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(70, 520, 828, 150);
@@ -246,16 +252,46 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void btmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmodificarActionPerformed
 
-        Arepapp objectoArepapp = new Arepapp();
-        objectoArepapp.ModificarUsuarios(txtcedula, txtnombre, txtapellido, txtdireccion, txtcelular, txtusuario, txtpass, txtcodigorol);
-        objectoArepapp.MostrarUsuario();
+        String Tipo_rol1 = null;
+        switch (cbxrol.getSelectedIndex()) {
+            case 1:
+                Tipo_rol1 = "500";
+                case 2:
+                Tipo_rol1 = "501";
+                case 3:
+                Tipo_rol1 = "502";
+                case 4:
+                Tipo_rol1 = "503";
+                break;
+                
+            default:
+                throw new AssertionError();
+        }
+        
+        cone.modificaDatos("UPDATE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
     }//GEN-LAST:event_btmodificarActionPerformed
 
     private void btguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btguardarActionPerformed
 
-        Arepapp objectoArepapp = new Arepapp();
-        objectoArepapp.GuardarUsuario(txtcedula, txtnombre, txtapellido, txtdireccion, txtcelular, txtusuario, txtpass, txtcodigorol);
-        objectoArepapp.MostrarUsuario();
+        String Tipo_rol = null;
+        switch (cbxrol.getSelectedIndex()) {
+            case 1:
+                Tipo_rol = "500";
+                case 2:
+                Tipo_rol = "501";
+                case 3:
+                Tipo_rol = "502";
+                case 4:
+                Tipo_rol = "503";
+                break;
+                
+            default:
+                throw new AssertionError();
+        }
+        
+         cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
+        
+        
     }//GEN-LAST:event_btguardarActionPerformed
 
     private void txtcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcelularKeyTyped
@@ -274,16 +310,35 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
         char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
+        if (c < '0' || c > '9')
+            evt.consume();    }                                   
+ public void consultar() {
+        try {
+            ResultSet rs1 = cone.consultaDatos("SELECT * FROM usuarios");
+            String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
+            modelo = new DefaultTableModel(null, columnNames);
+            String[] datos = new String[8];
+            while (rs1.next()) {
+                datos[0] = rs1.getString("codigo");
+                datos[1] = rs1.getString("nombre");
+                datos[2] = rs1.getString("apellido");
+                datos[3] = rs1.getString("direccion");
+                datos[4] = rs1.getString("celular");
+                datos[5] = rs1.getString("usuario");
+                datos[6] = rs1.getString("pass");
+                datos[7] = rs1.getString("codigo_rol");
+
+                modelo.addRow(datos);
+            }
+            tabla1.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_txtcedulaKeyTyped
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
 
-        Arepapp objectoArepapp = new Arepapp();
-        objectoArepapp.EliminarUsuario(txtcedula);
-        objectoArepapp.MostrarUsuario();
+        
     }//GEN-LAST:event_bteliminarActionPerformed
 
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
@@ -300,17 +355,16 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtdireccionKeyTyped
 
-    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        Arepapp objectoArepapp = new Arepapp();
-        objectoArepapp.CargarDatos(tabla, txtcedula, txtnombre, txtapellido, txtdireccion, txtcelular, txtusuario, txtpass, txtcodigorol);
-    }//GEN-LAST:event_tablaMouseClicked
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
+    
+    }//GEN-LAST:event_tabla1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bteliminar;
     private javax.swing.JButton btguardar;
     private javax.swing.JButton btmodificar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbxrol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -326,11 +380,10 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JTable tabla;
+    public static javax.swing.JTable tabla1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcelular;
-    private javax.swing.JTextField txtcodigorol;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtpass;

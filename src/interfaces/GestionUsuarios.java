@@ -1,39 +1,38 @@
-
 package interfaces;
 
 import com.mysql.cj.xdevapi.Statement;
+import com.sun.jdi.connect.spi.Connection;
 import conexion.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
-     
     ConexionBD cone;
     DefaultTableModel modelo;
-       
+
     public GestionUsuarios() {
         initComponents();
+
         cone = new ConexionBD();
-        String[] columnNames = {"cedula","nombre","apellido","direccion","celular","usuario","pass","codigo_rol"};
+        String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
         modelo = new DefaultTableModel(null, columnNames);
         consultar();
-          
+
     }
-    public void DatosAtraidos (){
-        
-        
-     
-        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -60,7 +59,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         cbxrol = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
 
         setClosable(true);
         setIconifiable(true);
@@ -237,21 +235,19 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tabla1);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(70, 520, 828, 150);
-        jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(70, 520, 830, 150);
+        jScrollPane2.setBounds(660, 150, 828, 230);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1533, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,20 +259,20 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         switch (cbxrol.getSelectedIndex()) {
             case 1:
                 Tipo_rol1 = "500";
-                case 2:
+            case 2:
                 Tipo_rol1 = "501";
-                case 3:
+            case 3:
                 Tipo_rol1 = "502";
-                case 4:
+            case 4:
                 Tipo_rol1 = "503";
                 break;
-                
+
             default:
                 throw new AssertionError();
         }
-        
+
         cone.modificaDatos("UPDATE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
-        
+
     }//GEN-LAST:event_btmodificarActionPerformed
 
     private void btguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btguardarActionPerformed
@@ -285,21 +281,21 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         switch (cbxrol.getSelectedIndex()) {
             case 1:
                 Tipo_rol = "500";
-                case 2:
+            case 2:
                 Tipo_rol = "501";
-                case 3:
+            case 3:
                 Tipo_rol = "502";
-                case 4:
+            case 4:
                 Tipo_rol = "503";
                 break;
-                
+
             default:
                 throw new AssertionError();
         }
-        
-         cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
-        
-        
+
+        cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
+
+
     }//GEN-LAST:event_btguardarActionPerformed
 
     private void txtcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcelularKeyTyped
@@ -318,9 +314,12 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
         char c = evt.getKeyChar();
-        if (c < '0' || c > '9')
-            evt.consume();    }                                   
- public void consultar() {
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }
+
+    public void consultar() {
         try {
             ResultSet rs1 = cone.consultaDatos("SELECT * FROM usuarios");
             String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
@@ -342,9 +341,8 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(GestionUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_txtcedulaKeyTyped
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
@@ -353,21 +351,20 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         switch (cbxrol.getSelectedIndex()) {
             case 1:
                 Tipo_rol1 = "500";
-                case 2:
+            case 2:
                 Tipo_rol1 = "501";
-                case 3:
+            case 3:
                 Tipo_rol1 = "502";
-                case 4:
+            case 4:
                 Tipo_rol1 = "503";
                 break;
-                
+
             default:
                 throw new AssertionError();
         }
-        
+
         cone.modificaDatos("DELETE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
-        
-        
+
 
     }//GEN-LAST:event_bteliminarActionPerformed
 
@@ -386,7 +383,8 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtdireccionKeyTyped
 
     private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
-    
+
+
     }//GEN-LAST:event_tabla1MouseClicked
 
 

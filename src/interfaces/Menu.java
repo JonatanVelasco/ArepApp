@@ -196,9 +196,9 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        armar_arepa arm = new armar_arepa();
-        escritorio.add(arm);
-        arm.show();
+        CrearProducto Cp = new CrearProducto();
+        escritorio.add(Cp);
+        Cp.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed

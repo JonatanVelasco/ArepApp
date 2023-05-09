@@ -18,16 +18,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     ConexionBD cone;
     DefaultTableModel modelo;
 
-    public GestionUsuarios() {
-        initComponents();
-
-        cone = new ConexionBD();
-        String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
-        modelo = new DefaultTableModel(null, columnNames);
-        consultar();
-
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

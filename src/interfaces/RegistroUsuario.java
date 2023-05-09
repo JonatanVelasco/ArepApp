@@ -317,7 +317,7 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
 
             } catch (Exception e) {
 
-                JOptionPane.showMessageDialog(rootPane, "Error:" + e);
+                JOptionPane.showMessageDialog(rootPane, "Error: Error" + e);
             }
         }
     }

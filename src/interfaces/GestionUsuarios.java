@@ -269,6 +269,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         }
         
         cone.modificaDatos("UPDATE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
+        
     }//GEN-LAST:event_btmodificarActionPerformed
 
     private void btguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btguardarActionPerformed
@@ -338,6 +339,24 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
 
+        String Tipo_rol1 = null;
+        switch (cbxrol.getSelectedIndex()) {
+            case 1:
+                Tipo_rol1 = "500";
+                case 2:
+                Tipo_rol1 = "501";
+                case 3:
+                Tipo_rol1 = "502";
+                case 4:
+                Tipo_rol1 = "503";
+                break;
+                
+            default:
+                throw new AssertionError();
+        }
+        
+        cone.modificaDatos("DELETE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
+        
         
     }//GEN-LAST:event_bteliminarActionPerformed
 

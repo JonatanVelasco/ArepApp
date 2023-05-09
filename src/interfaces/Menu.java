@@ -62,6 +62,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         comprar = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -124,6 +125,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         gestionAdmin.add(jMenuItem5);
+
+        jMenuItem1.setText("Gestión de insumos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        gestionAdmin.add(jMenuItem1);
 
         jBarra.add(gestionAdmin);
 
@@ -250,6 +259,12 @@ public class Menu extends javax.swing.JFrame {
         productos.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       CargarInsumos ci = new CargarInsumos();
+       escritorio.add(ci);
+       ci.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,6 +307,7 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JMenu gestionAdmin;
     private javax.swing.JMenuBar jBarra;
     private javax.swing.JButton jButton1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

@@ -1,12 +1,14 @@
 
 package interfaces;
 
+import com.mysql.cj.xdevapi.Statement;
 import conexion.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
@@ -22,6 +24,11 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         consultar();
           
     }
+    public void DatosAtraidos (){
+        
+        
+     
+        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -335,6 +342,9 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(GestionUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
     }//GEN-LAST:event_txtcedulaKeyTyped
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
@@ -358,6 +368,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         cone.modificaDatos("DELETE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
         
         
+
     }//GEN-LAST:event_bteliminarActionPerformed
 
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped

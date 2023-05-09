@@ -67,6 +67,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("CREA TU AREPA");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

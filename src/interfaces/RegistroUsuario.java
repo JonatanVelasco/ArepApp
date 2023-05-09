@@ -64,6 +64,11 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         JFlecha = new javax.swing.JLabel();
         flecha = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N

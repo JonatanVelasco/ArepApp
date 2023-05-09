@@ -319,9 +319,9 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         }
 
         tabla_insumos.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                int filaSeleccionada = tabla_insumos.getSelectedRow();
-                if (filaSeleccionada >= 0) {
+                public void mouseClicked(MouseEvent e) {
+                    int filaSeleccionada = tabla_insumos.getSelectedRow();
+                    if (filaSeleccionada >= 0) {
                     label_id.setText(tabla_insumos.getValueAt(filaSeleccionada, 0).toString());
                     txt_nombre.setText(tabla_insumos.getValueAt(filaSeleccionada, 1).toString());
                     txt_precio.setText(tabla_insumos.getValueAt(filaSeleccionada, 2).toString());

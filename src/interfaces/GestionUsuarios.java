@@ -1,8 +1,10 @@
 package interfaces;
 
+import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
 import conexion.ConexionBD;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,6 +14,8 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
@@ -27,6 +31,35 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         consultar();
 
     }
+
+    //public class InsertarDatos {
+    //  private Connection con;
+    //public InsertarDatos(Connection con) {
+    //  this.con = con;
+    //}
+    //public void insertarDatos(String cedula, String nombre, String apellido, String direccion, String celular,
+    //                        String usuario, String pass, int codigo_rol) throws SQLException {
+    //String sql = "INSERT INTO tu_tabla (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) "
+    //          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    //PreparedStatement stmt = cone.prepareStatement(sql);
+    //stmt.setString(1, cedula);
+    //stmt.setString(2, nombre);
+    //stmt.setString(3, apellido);
+    //stmt.setString(4, direccion);
+    //stmt.setString(5, celular);
+    //stmt.setString(6, usuario);
+    //stmt.setString(7, pass);
+    //stmt.setInt(8, codigo_rol);
+    //int filasAfectadas = stmt.executeUpdate();
+    //if (filasAfectadas == 1) {
+    //  System.out.println("Datos insertados correctamente.");
+    //} else {
+    //    System.out.println("Error al insertar los datos.");
+    //}
+    //stmt.close();
+    //  }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -338,8 +371,10 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                 modelo.addRow(datos);
             }
             tabla1.setModel(modelo);
+
         } catch (SQLException ex) {
-            Logger.getLogger(GestionUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GestionUsuarios.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
 

@@ -50,10 +50,15 @@
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txt_idmodificar" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="txt_newrol" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt_idmodificar" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="txt_newrol" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" pref="353" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Component id="btomodificar" min="-2" max="-2" attributes="0"/>
@@ -102,6 +107,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Nirmala UI" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cargo"/>
       </Properties>
     </Component>
@@ -117,6 +125,9 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tabla">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Nirmala UI" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
                 <Column editable="true" title="Title 1" type="java.lang.Object"/>
@@ -139,6 +150,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Nirmala UI" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Codigo"/>
       </Properties>
     </Component>
@@ -149,6 +163,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btomodificar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Nirmala UI" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
@@ -157,6 +174,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Nirmala UI" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="digite el codigo del usuario que desea modificar su rol "/>
       </Properties>
     </Component>
@@ -168,6 +188,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Nirmala UI" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="introduzca el nuevo rol"/>
       </Properties>
     </Component>

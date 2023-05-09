@@ -42,6 +42,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel1.setText("Cargo");
 
         txt_texto.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +56,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
             }
         });
 
+        tabla.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,6 +77,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel2.setText("Codigo");
 
         txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -83,6 +86,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
             }
         });
 
+        btomodificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btomodificar.setText("Modificar");
         btomodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +94,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel5.setText("digite el codigo del usuario que desea modificar su rol ");
 
         txt_idmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +108,7 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel7.setText("introduzca el nuevo rol");
 
         txt_newrol.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -158,10 +164,13 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
                                         .addComponent(txt_codigo)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_idmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_newrol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_idmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_newrol, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(btomodificar))
                 .addGap(256, 256, 256))
         );

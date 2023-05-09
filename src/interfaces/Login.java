@@ -42,7 +42,7 @@ public class Login extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("INICIAR SESION");
 
@@ -64,10 +64,10 @@ public class Login extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel2.setText("Contraseña");
 
-        jLabel3.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel3.setText("Usuario");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
@@ -78,7 +78,7 @@ public class Login extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 204, 255));
 
-        JL_inicioSesion.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        JL_inicioSesion.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         JL_inicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JL_inicioSesion.setText("Iniciar Sesion");
         JL_inicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -99,10 +99,10 @@ public class Login extends javax.swing.JInternalFrame {
             .addComponent(JL_inicioSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jLabel4.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel4.setText("¿No tienes cuenta?");
 
-        jLabel5.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 204, 255));
         jLabel5.setText("Registrarse");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -172,7 +172,7 @@ public class Login extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

@@ -78,6 +78,7 @@ public class historial_pedidos extends javax.swing.JInternalFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("HISTORIAL DE PEDIDOS");
 
+        tb_historial.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tb_historial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

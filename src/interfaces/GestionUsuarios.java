@@ -19,6 +19,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.table.TableRowSorter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
@@ -62,13 +66,13 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btmodificar = new javax.swing.JButton();
         bteliminar = new javax.swing.JButton();
         btguardar = new javax.swing.JButton();
+        btbuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -138,7 +142,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Cedula");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(0, 20, 100, 30);
+        jLabel8.setBounds(0, 10, 100, 30);
 
         jPanel3.add(jPanel1);
         jPanel1.setBounds(20, 170, 100, 260);
@@ -187,17 +191,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jPanel3.add(cbxrol);
         cbxrol.setBounds(420, 300, 170, 30);
 
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabla1MouseClicked(evt);
@@ -206,23 +199,19 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tabla1);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(600, 220, 828, 230);
+        jScrollPane2.setBounds(600, 220, 750, 230);
         jPanel3.add(txtbuscar);
         txtbuscar.setBounds(600, 180, 170, 30);
-
-        jLabel4.setText("jLabel4");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(780, 180, 130, 30);
 
         jPanel5.setBackground(new java.awt.Color(153, 204, 255));
         jPanel5.setForeground(new java.awt.Color(153, 204, 255));
         jPanel5.setLayout(null);
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Nirmala UI", 1, 48)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Datos del Usuarios");
         jPanel5.add(jLabel10);
-        jLabel10.setBounds(0, 18, 1550, 130);
+        jLabel10.setBounds(0, 20, 1380, 130);
 
         jPanel3.add(jPanel5);
         jPanel5.setBounds(0, 0, 1550, 160);
@@ -251,6 +240,14 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
+        btbuscar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btbuscar.setText("Buscar");
+        btbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -266,11 +263,17 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                         .addGap(391, 391, 391)
                         .addComponent(btguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(653, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(661, 661, 661))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(209, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(btbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(btguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,7 +289,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1550, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1374, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,17 +322,17 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         String Tipo_rol1 = null;
         switch (cbxrol.getSelectedIndex()) {
             case 1:
-            Tipo_rol1 = "500";
+                Tipo_rol1 = "500";
             case 2:
-            Tipo_rol1 = "501";
+                Tipo_rol1 = "501";
             case 3:
-            Tipo_rol1 = "502";
+                Tipo_rol1 = "502";
             case 4:
-            Tipo_rol1 = "503";
-            break;
+                Tipo_rol1 = "503";
+                break;
 
             default:
-            throw new AssertionError();
+                throw new AssertionError();
         }
 
         cone.modificaDatos("DELETE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'()");
@@ -341,49 +344,50 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         if (c < '0' || c > '9') {
             evt.consume();
         }
+
+    }
+
+    public void consultar() {
+        try {
+            ResultSet rs1 = cone.consultaDatos("SELECT * FROM usuarios");
+            String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
+            modelo = new DefaultTableModel(null, columnNames);
+            String[] datos = new String[8];
+            while (rs1.next()) {
+                datos[0] = rs1.getString("cedula");
+                datos[1] = rs1.getString("nombre");
+                datos[2] = rs1.getString("apellido");
+                datos[3] = rs1.getString("direccion");
+                datos[4] = rs1.getString("celular");
+                datos[5] = rs1.getString("usuario");
+                datos[6] = rs1.getString("pass");
+                datos[7] = rs1.getString("codigo_rol");
+
+                modelo.addRow(datos);
+            }
+            tabla1.setModel(modelo);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionUsuarios.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
-        public void consultar() {
-            try {
-                ResultSet rs1 = cone.consultaDatos("SELECT * FROM usuarios");
-                String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
-                modelo = new DefaultTableModel(null, columnNames);
-                String[] datos = new String[8];
-                while (rs1.next()) {
-                    datos[0] = rs1.getString("cedula");
-                    datos[1] = rs1.getString("nombre");
-                    datos[2] = rs1.getString("apellido");
-                    datos[3] = rs1.getString("direccion");
-                    datos[4] = rs1.getString("celular");
-                    datos[5] = rs1.getString("usuario");
-                    datos[6] = rs1.getString("pass");
-                    datos[7] = rs1.getString("codigo_rol");
+        tabla1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int filaSeleccionada = tabla1.getSelectedRow();
+                if (filaSeleccionada >= 0) {
+                    txtcedula.setText(tabla1.getValueAt(filaSeleccionada, 0).toString());
+                    txtnombre.setText(tabla1.getValueAt(filaSeleccionada, 1).toString());
+                    txtapellido.setText(tabla1.getValueAt(filaSeleccionada, 2).toString());
+                    txtdireccion.setText(tabla1.getValueAt(filaSeleccionada, 3).toString());
+                    txtcelular.setText(tabla1.getValueAt(filaSeleccionada, 4).toString());
+                    txtusuario.setText(tabla1.getValueAt(filaSeleccionada, 5).toString());
+                    txtpass.setText(tabla1.getValueAt(filaSeleccionada, 6).toString());
+                    cbxrol.setSelectedItem(tabla1.getValueAt(filaSeleccionada, 7).toString());
 
-                    modelo.addRow(datos);
                 }
-                tabla1.setModel(modelo);
-
-            } catch (SQLException ex) {
-                Logger.getLogger(GestionUsuarios.class
-                    .getName()).log(Level.SEVERE, null, ex);
             }
-
-            tabla1.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    int filaSeleccionada = tabla1.getSelectedRow();
-                    if (filaSeleccionada >= 0) {
-                        txtcedula.setText(tabla1.getValueAt(filaSeleccionada, 0).toString());
-                        txtnombre.setText(tabla1.getValueAt(filaSeleccionada, 1).toString());
-                        txtapellido.setText(tabla1.getValueAt(filaSeleccionada, 2).toString());
-                        txtdireccion.setText(tabla1.getValueAt(filaSeleccionada, 3).toString());
-                        txtcelular.setText(tabla1.getValueAt(filaSeleccionada, 4).toString());
-                        txtusuario.setText(tabla1.getValueAt(filaSeleccionada, 5).toString());
-                        txtpass.setText(tabla1.getValueAt(filaSeleccionada, 6).toString());
-                        cbxrol.setSelectedItem(tabla1.getValueAt(filaSeleccionada, 7).toString());
-
-                    }
-                }
-            });
+        });
 
     }//GEN-LAST:event_txtcedulaKeyTyped
 
@@ -406,17 +410,17 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         String Tipo_rol = null;
         switch (cbxrol.getSelectedIndex()) {
             case 1:
-            Tipo_rol = "500";
+                Tipo_rol = "500";
             case 2:
-            Tipo_rol = "501";
+                Tipo_rol = "501";
             case 3:
-            Tipo_rol = "502";
+                Tipo_rol = "502";
             case 4:
-            Tipo_rol = "503";
-            break;
+                Tipo_rol = "503";
+                break;
 
             default:
-            throw new AssertionError();
+                throw new AssertionError();
         }
 
         cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
@@ -428,24 +432,32 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         String Tipo_rol1 = null;
         switch (cbxrol.getSelectedIndex()) {
             case 1:
-            Tipo_rol1 = "500";
+                Tipo_rol1 = "500";
             case 2:
-            Tipo_rol1 = "501";
+                Tipo_rol1 = "501";
             case 3:
-            Tipo_rol1 = "502";
+                Tipo_rol1 = "502";
             case 4:
-            Tipo_rol1 = "503";
-            break;
+                Tipo_rol1 = "503";
+                break;
 
             default:
-            throw new AssertionError();
+                throw new AssertionError();
         }
 
         cone.modificaDatos("UPDATE usuarios SET cedula='" + txtcedula.getText() + "', nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "'");
     }//GEN-LAST:event_btmodificarActionPerformed
 
+    private void btbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbuscarActionPerformed
+
+     
+           
+
+    }//GEN-LAST:event_btbuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btbuscar;
     private javax.swing.JButton bteliminar;
     private javax.swing.JButton btguardar;
     private javax.swing.JButton btmodificar;
@@ -456,7 +468,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -467,7 +478,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabla1;
+    public static javax.swing.JTable tabla1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtbuscar;
     private javax.swing.JTextField txtcedula;
@@ -477,4 +488,8 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
+
+    private void filtro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

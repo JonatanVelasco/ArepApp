@@ -17,7 +17,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     public GestionUsuarios() {
         initComponents();
         cone = new ConexionBD();
-        String[] columnNames = {"cedula ","nombre","apellido","direccion","celular","usuario","pass","codigo_rol"};
+        String[] columnNames = {"cedula","nombre","apellido","direccion","celular","usuario","pass","codigo_rol"};
         modelo = new DefaultTableModel(null, columnNames);
         consultar();
           
@@ -319,7 +319,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
             modelo = new DefaultTableModel(null, columnNames);
             String[] datos = new String[8];
             while (rs1.next()) {
-                datos[0] = rs1.getString("codigo");
+                datos[0] = rs1.getString("cedula");
                 datos[1] = rs1.getString("nombre");
                 datos[2] = rs1.getString("apellido");
                 datos[3] = rs1.getString("direccion");

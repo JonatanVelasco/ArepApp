@@ -38,6 +38,10 @@ public class Login extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         txtPass = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setFocusCycleRoot(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));

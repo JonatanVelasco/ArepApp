@@ -60,6 +60,11 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         bto_atras = new javax.swing.JButton();
         bto_guardarCambios = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         cbo_icategoria.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N

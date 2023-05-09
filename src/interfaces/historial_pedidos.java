@@ -67,6 +67,11 @@ public class historial_pedidos extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tb_historial = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 24)); // NOI18N

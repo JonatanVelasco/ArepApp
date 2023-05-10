@@ -33,6 +33,7 @@ public class medio_pago extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnPago1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -86,6 +87,23 @@ public class medio_pago extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        btnPago1.setBackground(new java.awt.Color(153, 204, 255));
+        btnPago1.setFont(new java.awt.Font("Nirmala UI", 0, 24)); // NOI18N
+        btnPago1.setText("PAGO CON TARJETA");
+        btnPago1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPago1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPago1MouseExited(evt);
+            }
+        });
+        btnPago1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPago1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,7 +111,9 @@ public class medio_pago extends javax.swing.JInternalFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(187, 187, 187)
-                .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnPago1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(230, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,9 +121,11 @@ public class medio_pago extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addComponent(btnPago1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnPago, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,9 +154,25 @@ public class medio_pago extends javax.swing.JInternalFrame {
         btnPago.setBackground(new java.awt.Color(153, 204, 255));
     }//GEN-LAST:event_btnPagoMouseExited
 
+    private void btnPago1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPago1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPago1MouseEntered
+
+    private void btnPago1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPago1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPago1MouseExited
+
+    private void btnPago1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPago1ActionPerformed
+        PagoTarjeta pago = new PagoTarjeta();
+        Menu.escritorio.add(pago);
+        pago.show();
+        this.dispose();
+    }//GEN-LAST:event_btnPago1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPago;
+    private javax.swing.JButton btnPago1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

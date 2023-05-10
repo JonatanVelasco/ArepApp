@@ -94,13 +94,13 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(cbo_icategoria);
-        cbo_icategoria.setBounds(35, 160, 125, 26);
+        cbo_icategoria.setBounds(25, 210, 140, 30);
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CATEGORÍA");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(35, 134, 110, 20);
+        jLabel1.setBounds(30, 170, 130, 30);
 
         tabla_insumos.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tabla_insumos.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,7 +124,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tabla_insumos);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(191, 97, 413, 243);
+        jScrollPane1.setBounds(200, 160, 450, 270);
 
         bto_nuevo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_nuevo.setText("Nuevo");
@@ -134,7 +134,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(bto_nuevo);
-        bto_nuevo.setBounds(628, 313, 85, 27);
+        bto_nuevo.setBounds(670, 400, 90, 30);
 
         bto_modificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_modificar.setText("Modificar");
@@ -144,45 +144,51 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(bto_modificar);
-        bto_modificar.setBounds(628, 358, 87, 27);
+        bto_modificar.setBounds(670, 440, 120, 27);
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nombre:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(622, 65, 53, 20);
+        jLabel2.setBounds(680, 200, 90, 30);
 
         txt_nombre.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txt_nombre);
-        txt_nombre.setBounds(702, 62, 159, 26);
+        txt_nombre.setBounds(769, 200, 160, 26);
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Precio:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(622, 115, 40, 20);
+        jLabel3.setBounds(680, 250, 90, 30);
 
         txt_precio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txt_precio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txt_precio);
-        txt_precio.setBounds(701, 112, 158, 26);
+        txt_precio.setBounds(768, 250, 160, 26);
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Estado:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(622, 174, 44, 20);
+        jLabel4.setBounds(680, 300, 90, 30);
 
         cbo_estado.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cbo_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Disponible", "Agotado" }));
         jPanel1.add(cbo_estado);
-        cbo_estado.setBounds(701, 171, 158, 26);
+        cbo_estado.setBounds(768, 300, 160, 26);
 
         l_categoria.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        l_categoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         l_categoria.setText("Categoría:");
         jPanel1.add(l_categoria);
-        l_categoria.setBounds(622, 234, 62, 20);
+        l_categoria.setBounds(680, 350, 90, 30);
 
         cbo_categoria.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         cbo_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Bases", "Ingredientes", "Salsas" }));
         jPanel1.add(cbo_categoria);
-        cbo_categoria.setBounds(702, 231, 158, 26);
+        cbo_categoria.setBounds(768, 350, 160, 26);
 
         bto_agregar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_agregar.setText("Agregar");
@@ -192,7 +198,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(bto_agregar);
-        bto_agregar.setBounds(719, 313, 79, 27);
+        bto_agregar.setBounds(770, 400, 80, 30);
 
         bto_atras.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_atras.setText("Atrás");
@@ -202,7 +208,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(bto_atras);
-        bto_atras.setBounds(810, 313, 87, 27);
+        bto_atras.setBounds(860, 400, 90, 30);
 
         bto_guardarCambios.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_guardarCambios.setText("Guardar cambios");
@@ -212,52 +218,47 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(bto_guardarCambios);
-        bto_guardarCambios.setBounds(721, 358, 134, 27);
+        bto_guardarCambios.setBounds(814, 440, 140, 27);
 
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ID:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(622, 22, 17, 20);
+        jLabel5.setBounds(680, 160, 90, 30);
 
         label_id.setFont(new java.awt.Font("Nirmala UI", 0, 24)); // NOI18N
+        label_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_id.setText(" ");
         jPanel1.add(label_id);
-        label_id.setBounds(657, 12, 7, 32);
+        label_id.setBounds(770, 160, 160, 30);
 
         jPanel3.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel3.setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 48)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Crea tu Arepa");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 199, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(0, 4, 1020, 100);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(10, 0, 960, 160);
+        jPanel3.setBounds(0, 0, 1030, 140);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
         pack();

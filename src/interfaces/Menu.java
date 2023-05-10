@@ -63,6 +63,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         comprar = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -133,6 +134,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         gestionAdmin.add(jMenuItem1);
+
+        jMenuItem10.setText("Reportes");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        gestionAdmin.add(jMenuItem10);
 
         jBarra.add(gestionAdmin);
 
@@ -265,6 +274,10 @@ public class Menu extends javax.swing.JFrame {
        ci.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +321,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jBarra;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

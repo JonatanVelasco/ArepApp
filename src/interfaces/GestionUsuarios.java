@@ -23,11 +23,28 @@ import javax.swing.table.TableRowSorter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.RowFilter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle.Control;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
 
+    private Control control;
     ConexionBD cone;
     DefaultTableModel modelo;
+    private Connection conexion;
+    private DefaultTableModel modeloTabla;
 
     public GestionUsuarios() {
         initComponents();
@@ -200,6 +217,12 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(600, 220, 750, 230);
+
+        txtbuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtbuscarKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtbuscar);
         txtbuscar.setBounds(600, 180, 170, 30);
 
@@ -450,10 +473,16 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void btbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbuscarActionPerformed
 
-     
-           
+        
+
+        
 
     }//GEN-LAST:event_btbuscarActionPerformed
+
+    private void txtbuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyTyped
+
+
+    }//GEN-LAST:event_txtbuscarKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -489,7 +518,4 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 
-    private void filtro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

@@ -1,3 +1,4 @@
+package interfaces;
 
 import javax.swing.*;
 import java.awt.*;
@@ -218,7 +219,7 @@ public class compra extends JPanel {
 
             JLabel totalLabel = new JLabel();
             actualizarTotal(totalLabel, true, 0);
-            int respuesta = JOptionPane.showConfirmDialog(null, "El total a pagar por su pedido es: " + totalLabel.getText()+ JOptionPane.YES_NO_OPTION);
+            int respuesta = JOptionPane.showConfirmDialog(null, "El total a pagar por su pedido es: " + totalLabel.getText() + JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
 
             }
@@ -235,20 +236,19 @@ public class compra extends JPanel {
         carritoFrame.setVisible(true);
     }
 
-private static void actualizarTotal(JLabel totalLabel, boolean eliminarProducto, int precioProductoEliminado) {
-    int total = 0;
-    for (String productoCarrito : verCarritoProductos) {
-        int precioIndex = productoCarrito.lastIndexOf('$') + 1;
-        int precio = Integer.parseInt(productoCarrito.substring(precioIndex));
-        total += precio;
+    private static void actualizarTotal(JLabel totalLabel, boolean eliminarProducto, int precioProductoEliminado) {
+        int total = 0;
+        for (String productoCarrito : verCarritoProductos) {
+            int precioIndex = productoCarrito.lastIndexOf('$') + 1;
+            int precio = Integer.parseInt(productoCarrito.substring(precioIndex));
+            total += precio;
+        }
+        if (eliminarProducto) {
+            total -= precioProductoEliminado;
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        totalLabel.setText("Total: $" + decimalFormat.format(total));
     }
-    if (eliminarProducto) {
-        total -= precioProductoEliminado;
-    }
-    DecimalFormat decimalFormat = new DecimalFormat("#.00");
-    totalLabel.setText("Total: $" + decimalFormat.format(total));
-}
-
 
     public static void main(String[] args) {
 

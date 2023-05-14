@@ -237,7 +237,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Nirmala UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Crea tu Arepa");
+        jLabel6.setText("GESTIÓN DE INSUMOS");
         jPanel3.add(jLabel6);
         jLabel6.setBounds(0, 4, 1020, 100);
 

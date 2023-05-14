@@ -1,8 +1,14 @@
 package interfaces;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 public class Menu extends javax.swing.JFrame {
     
+ public static Connection conn;
  
     public static String userName="";
     public static String cedula="";
@@ -221,9 +227,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 
-        medio_pago com = new medio_pago();
-        escritorio.add(com);
-        com.show();
+        compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
+        escritorio.add(c);
+        c.show(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed

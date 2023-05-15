@@ -136,6 +136,8 @@ public class Entregas extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane2.setAutoscrolls(true);
 
+        jScrollPane1.setHorizontalScrollBar(null);
+
         tabla.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

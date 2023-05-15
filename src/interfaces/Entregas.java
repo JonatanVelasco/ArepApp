@@ -42,9 +42,6 @@ public class Entregas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_estado = new javax.swing.JTextField();
         bto_actualizar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         txt_obvs = new javax.swing.JTextField();
         bto_enviar = new javax.swing.JButton();
@@ -52,6 +49,9 @@ public class Entregas extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_dinero = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -131,32 +131,6 @@ public class Entregas extends javax.swing.JInternalFrame {
         getContentPane().add(bto_actualizar);
         bto_actualizar.setBounds(359, 237, 89, 27);
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane2.setToolTipText("");
-        jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane2.setAutoscrolls(true);
-
-        jScrollPane1.setHorizontalScrollBar(null);
-
-        tabla.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tabla);
-
-        jScrollPane2.setViewportView(jScrollPane1);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(0, 270, 1165, 150);
-
         jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jTextField1.setText("observaciones");
         getContentPane().add(jTextField1);
@@ -205,23 +179,48 @@ public class Entregas extends javax.swing.JInternalFrame {
             }
         });
 
+        jScrollPane1.setHorizontalScrollBar(null);
+
+        tabla.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
+
+        jScrollPane3.setViewportView(jScrollPane1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addContainerGap(838, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,7 +229,7 @@ public class Entregas extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 190, 1170, 410);
+        jPanel2.setBounds(-50, 190, 1170, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -317,7 +316,7 @@ char c = evt.getKeyChar();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txt_codigo;

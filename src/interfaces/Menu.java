@@ -17,6 +17,7 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         checkUser();
+        pack();
     }
 
     public static void checkUser() {
@@ -59,7 +60,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
+        bton_arepapp = new javax.swing.JButton();
         jBarra = new javax.swing.JMenuBar();
         gestionAdmin = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -78,35 +79,37 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Iniciar sesión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        escritorio.setBackground(new java.awt.Color(255, 255, 255));
+
+        bton_arepapp.setText("AREPAPP");
+        bton_arepapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bton_arepappActionPerformed(evt);
             }
         });
 
-        escritorio.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(bton_arepapp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButton1)
-                .addContainerGap(772, Short.MAX_VALUE))
+                .addGap(324, 324, 324)
+                .addComponent(bton_arepapp, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(340, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(265, 265, 265)
-                .addComponent(jButton1)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addGap(69, 69, 69)
+                .addComponent(bton_arepapp, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        gestionAdmin.setText("Gestión  Admin");
+        gestionAdmin.setText("Gestión administrador");
 
-        jMenuItem2.setText("Nuestros Productos");
+        jMenuItem2.setText("Nuestros productos");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -114,7 +117,7 @@ public class Menu extends javax.swing.JFrame {
         });
         gestionAdmin.add(jMenuItem2);
 
-        jMenuItem4.setText("Gestión de Usuarios");
+        jMenuItem4.setText(" Gestión de usuarios");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -122,7 +125,7 @@ public class Menu extends javax.swing.JFrame {
         });
         gestionAdmin.add(jMenuItem4);
 
-        jMenuItem5.setText("Gestion Roles");
+        jMenuItem5.setText("Gestion roles");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -150,7 +153,7 @@ public class Menu extends javax.swing.JFrame {
 
         comprar.setText("Comprar");
 
-        jMenuItem3.setText("Armar producto");
+        jMenuItem3.setText("Arma tu arepa");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -168,9 +171,9 @@ public class Menu extends javax.swing.JFrame {
 
         jBarra.add(comprar);
 
-        misPedidos.setText("Mis Pedidos");
+        misPedidos.setText("Mis pedidos");
 
-        jMenuItem7.setText("Mis Pedidos");
+        jMenuItem7.setText("Historial de pedidos");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -190,7 +193,7 @@ public class Menu extends javax.swing.JFrame {
 
         entregas.setText("Entregas");
 
-        jMenuItem9.setText("Mis Entregas");
+        jMenuItem9.setText("Mis entregas");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -206,7 +209,9 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(escritorio))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,11 +254,12 @@ public class Menu extends javax.swing.JFrame {
         entregas1.show();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bton_arepappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bton_arepappActionPerformed
         Login login = new Login();
         escritorio.add(login);
         login.show();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        bton_arepapp.setVisible(false);
+    }//GEN-LAST:event_bton_arepappActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         Gestion_roles Gestion = new Gestion_roles();
@@ -320,12 +326,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bton_arepapp;
     public static javax.swing.JMenu comprar;
     public static javax.swing.JMenu entregas;
     public static javax.swing.JDesktopPane escritorio;
     public static javax.swing.JMenu gestionAdmin;
     private javax.swing.JMenuBar jBarra;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;

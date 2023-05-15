@@ -5,32 +5,30 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
 public class Menu extends javax.swing.JFrame {
-    
- public static Connection conn;
- 
-    public static String userName="";
-    public static String cedula="";
-    public static String rol="";
-    
+
+    public static Connection conn;
+
+    public static String userName = "";
+    public static String cedula = "";
+    public static String rol = "";
+
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
         checkUser();
     }
 
-    public static void  checkUser(){
-        if(userName.equals("")){
-           gestionAdmin.setVisible(false);
-           misPedidos.setVisible(false);
-           comprar.setVisible(false);
-           entregas.setVisible(false);
-        }
-        else{          
-            
-            switch(rol){
-                
+    public static void checkUser() {
+        if (userName.equals("")) {
+            gestionAdmin.setVisible(false);
+            misPedidos.setVisible(false);
+            comprar.setVisible(false);
+            entregas.setVisible(false);
+        } else {
+
+            switch (rol) {
+
                 case "500" -> {
                     //ADMIN
                     gestionAdmin.setVisible(true);
@@ -44,19 +42,18 @@ public class Menu extends javax.swing.JFrame {
                     misPedidos.setVisible(true);
                 }
                 case "502" -> //DOMICILIARIO 
-                            entregas.setVisible(true);
+                    entregas.setVisible(true);
                 case "503" -> {
                     //CLIENTE
                     comprar.setVisible(true);
                     misPedidos.setVisible(true);
                 }
-                
+
             }
 
         }
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -228,8 +225,9 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 
         compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
-        escritorio.add(c);
-        c.show(true);
+       
+
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -246,7 +244,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Entregas entregas1=new Entregas();
+        Entregas entregas1 = new Entregas();
         escritorio.add(entregas1);
         entregas1.show();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
@@ -258,7 +256,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Gestion_roles Gestion=new Gestion_roles();
+        Gestion_roles Gestion = new Gestion_roles();
         escritorio.add(Gestion);
         Gestion.show();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
@@ -276,14 +274,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       CargarInsumos ci = new CargarInsumos();
-       escritorio.add(ci);
-       ci.show();
+        CargarInsumos ci = new CargarInsumos();
+        escritorio.add(ci);
+        ci.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-    Report re = new Report();
-       escritorio.add(re);
+        Report re = new Report();
+        escritorio.add(re);
        re.show();    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**

@@ -1,9 +1,10 @@
+
 package interfaces;
 
+import interfaces.medio_pago;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -216,13 +217,16 @@ public class compra extends JPanel {
         // Botón para vaciar todo el carrito
         JButton FinalizarPedido = new JButton("Finalizar pedido");
         FinalizarPedido.addActionListener(e -> {
-
+            
             JLabel totalLabel = new JLabel();
-            actualizarTotal(totalLabel, true, 0);
-            int respuesta = JOptionPane.showConfirmDialog(null, "El total a pagar por su pedido es: " + totalLabel.getText() + JOptionPane.YES_NO_OPTION);
-            if (respuesta == JOptionPane.YES_OPTION) {
-
+            actualizarTotal(totalLabel, true,0);
+            int respuesta = JOptionPane.showConfirmDialog(null, "El total por su pedido es: " + totalLabel.getText()+ "¿Desea ir a pagar?");
+            if(respuesta == JOptionPane.YES_OPTION){
+                medio_pago ventanaPago = new medio_pago();
+                ventanaPago.setVisible(true);
+                ventanaPago.toFront();
             }
+            
 
         });
 
@@ -246,12 +250,11 @@ public class compra extends JPanel {
         if (eliminarProducto) {
             total -= precioProductoEliminado;
         }
-        DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        totalLabel.setText("Total: $" + decimalFormat.format(total));
+        totalLabel.setText("Total: $" + total);
     }
 
     public static void main(String[] args) {
-
+       
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp", "root", "");
             Statement stmt = conn.createStatement();
@@ -276,7 +279,7 @@ public class compra extends JPanel {
                 byte[] imagenBytes = rs.getBytes("imagen");
 
                 compra compra = new compra(conn, nombre, precio, descripcion, imagenBytes);
-                compra.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+//                compra.setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 compra.setBackground(Color.WHITE);
 
                 JButton agregarAlCarritoBtn = compra.getAgregarAlCarritoBtn();

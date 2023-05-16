@@ -131,7 +131,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         });
 
         bteliminar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bteliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_imagen-removebg-preview.png"))); // NOI18N
+        bteliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/elimanr png.png"))); // NOI18N
         bteliminar.setText("Eliminar ");
         bteliminar.setBorder(null);
         bteliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         btguardar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardarpng.png"))); // NOI18N
         btguardar.setText("Guardar");
-        btguardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btguardar.setBorder(null);
         btguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btguardarActionPerformed(evt);
@@ -457,7 +457,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
 
-        cone.modificaDatos("DELETE usuarios SET cedula='" + txtcedula.getText());
+        cone.modificaDatos("DELETE FROM usuarios WHERE cedula=" + txtcedula.getText());
         updateTable("");
     }//GEN-LAST:event_bteliminarActionPerformed
 

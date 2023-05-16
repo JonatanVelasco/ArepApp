@@ -126,17 +126,15 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel8.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel8.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("GESTION DE ROLES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

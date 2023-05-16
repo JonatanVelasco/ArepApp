@@ -4,10 +4,7 @@ import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
 import conexion.ConexionBD;
 import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class Menu extends javax.swing.JFrame {
 

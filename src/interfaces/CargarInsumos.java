@@ -65,6 +65,10 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         label_id = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -81,7 +85,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("CREA TU AREPA");
+        setTitle("Gestión de insumos");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -127,24 +131,24 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         jScrollPane1.setBounds(200, 160, 450, 270);
 
         bto_nuevo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_nuevo.setText("Nuevo");
+        bto_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new.png"))); // NOI18N
         bto_nuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_nuevoActionPerformed(evt);
             }
         });
         jPanel1.add(bto_nuevo);
-        bto_nuevo.setBounds(670, 400, 90, 30);
+        bto_nuevo.setBounds(700, 390, 50, 40);
 
         bto_modificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_modificar.setText("Modificar");
+        bto_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modificar.png"))); // NOI18N
         bto_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_modificarActionPerformed(evt);
             }
         });
         jPanel1.add(bto_modificar);
-        bto_modificar.setBounds(670, 440, 120, 27);
+        bto_modificar.setBounds(820, 390, 50, 40);
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,34 +195,34 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         cbo_categoria.setBounds(768, 350, 160, 26);
 
         bto_agregar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_agregar.setText("Agregar");
+        bto_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/add.png"))); // NOI18N
         bto_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_agregarActionPerformed(evt);
             }
         });
         jPanel1.add(bto_agregar);
-        bto_agregar.setBounds(770, 400, 80, 30);
+        bto_agregar.setBounds(760, 390, 46, 40);
 
         bto_atras.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_atras.setText("Atrás");
+        bto_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-back-40.png"))); // NOI18N
         bto_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_atrasActionPerformed(evt);
             }
         });
         jPanel1.add(bto_atras);
-        bto_atras.setBounds(860, 400, 90, 30);
+        bto_atras.setBounds(940, 390, 50, 40);
 
         bto_guardarCambios.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_guardarCambios.setText("Guardar cambios");
+        bto_guardarCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/save.png"))); // NOI18N
         bto_guardarCambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_guardarCambiosActionPerformed(evt);
             }
         });
         jPanel1.add(bto_guardarCambios);
-        bto_guardarCambios.setBounds(814, 440, 140, 27);
+        bto_guardarCambios.setBounds(880, 390, 50, 40);
 
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -239,7 +243,23 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("GESTIÓN DE INSUMOS");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(0, 4, 1020, 100);
+        jLabel6.setBounds(120, 30, 570, 80);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pechuga-de-pollo.png"))); // NOI18N
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(840, 90, 50, 40);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huevo-frito.png"))); // NOI18N
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(820, 20, 50, 50);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bacon.png"))); // NOI18N
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(740, 30, 50, 30);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arepa_amarilla.png"))); // NOI18N
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(770, 80, 40, 40);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1030, 140);
@@ -257,8 +277,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
         );
 
         pack();
@@ -335,6 +354,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         bto_atras.setVisible(false);
         bto_nuevo.setVisible(true);
         bto_modificar.setVisible(false);
+        bto_guardarCambios.setVisible(false);
 
         txt_nombre.setEnabled(false);
         txt_precio.setEnabled(false);
@@ -350,7 +370,7 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         cbo_estado.setEnabled(true);
         cbo_categoria.setEnabled(true);
         bto_agregar.setVisible(false);
-        bto_atras.setVisible(false);
+        bto_atras.setVisible(true);
 
         l_categoria.setVisible(true);
         cbo_categoria.setVisible(true);
@@ -451,11 +471,15 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbo_estado;
     private javax.swing.JComboBox<String> cbo_icategoria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

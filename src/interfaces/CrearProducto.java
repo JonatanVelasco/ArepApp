@@ -109,9 +109,9 @@ public class CrearProducto extends JInternalFrame {
         btnFinalizarPedido.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 medio_pago ventanaPago = new medio_pago();
+                Menu.escritorio.add(ventanaPago);
                 ventanaPago.show();
-                ventanaPago.setVisible(true);
-                ventanaPago.toFront();
+                CrearProducto.this.dispose();
             }
         });
 

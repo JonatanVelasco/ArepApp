@@ -5,8 +5,10 @@ import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JInternalFrame {
@@ -17,6 +19,8 @@ public class Login extends javax.swing.JInternalFrame {
         txtCorreo.setForeground(Color.BLACK);
         txtPass.setText("Ingrese su contraseña");
         txtPass.setForeground(Color.BLACK);
+       
+        pack();
 
     }
 
@@ -39,12 +43,15 @@ public class Login extends javax.swing.JInternalFrame {
         txtPass = new javax.swing.JTextField();
 
         setFocusCycleRoot(false);
+        setFocusable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setFocusable(false);
+        jPanel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("INICIAR SESION");
+        jLabel1.setText("AREPAPP");
 
         txtCorreo.setBorder(null);
         txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,7 +110,7 @@ public class Login extends javax.swing.JInternalFrame {
         jLabel4.setText("¿No tienes cuenta?");
 
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 204, 255));
+        jLabel5.setForeground(new java.awt.Color(102, 153, 255));
         jLabel5.setText("Registrarse");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,7 +154,7 @@ public class Login extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

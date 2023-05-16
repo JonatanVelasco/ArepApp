@@ -1,38 +1,14 @@
 package interfaces;
 
-
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import java.sql.*;
+import javax.swing.*;
 
 public class CrearProducto extends JInternalFrame {
 
-    private JPanel panelIngredientes;
-    private JPanel panelBases;
-    private JPanel panelSalsas;
+    private JPanel panelIngredientes, panelBases, panelSalsas;
     private ButtonGroup grupoBases;
     private BigDecimal total;
     private JLabel labelTotal;
@@ -88,6 +64,7 @@ public class CrearProducto extends JInternalFrame {
         cargarElementosDesdeDB("salsas", panelSalsas);
 
         JPanel panelPrincipal = new JPanel(new GridLayout(1, 3));
+        
         panelPrincipal.add(panelIngredientes);
         panelPrincipal.add(panelBases);
         panelPrincipal.add(panelSalsas);
@@ -123,26 +100,38 @@ public class CrearProducto extends JInternalFrame {
                     }
                 }
             }
-
+            lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
             lblTotal.setText("Total: $" + total);
         });
 
+        // Crear panel de botones
         JButton btnFinalizarPedido = new JButton("Finalizar Pedido");
         btnFinalizarPedido.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                medio_pago ventanaPago = new medio_pago();
+                ventanaPago.show();
+                ventanaPago.setVisible(true);
+                ventanaPago.toFront();
             }
         });
 
         // Agregar los componentes al panel principal
         JPanel panelBotones = new JPanel(new GridLayout(1, 2));
+
         panelBotones.add(btnCalcular);
         panelBotones.add(lblTotal);
-        panelPrincipal.add(panelBotones);
         panelBotones.add(btnFinalizarPedido);
 
-        setContentPane(panelPrincipal);
+        panelPrincipal.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JPanel contentPane = new JPanel(new BorderLayout());
+        contentPane.add(panelPrincipal, BorderLayout.CENTER);
+        contentPane.add(panelBotones, BorderLayout.SOUTH);
+        panelPrincipal.setPreferredSize(getSize());
+        setContentPane(contentPane);
         setVisible(true);
+    
 
     }
 
@@ -172,21 +161,21 @@ public class CrearProducto extends JInternalFrame {
 
     }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            JFrame frame = new JFrame("ARMA TU AREPA");
-//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            frame.setSize(800, 600);
-//            frame.setLocationRelativeTo(null);
-//
-//            JDesktopPane desktopPane = new JDesktopPane();
-//            frame.add(desktopPane, BorderLayout.CENTER);
-//
-//            CrearProductoTest internalFrame = new CrearProductoTest();
-//            internalFrame.setVisible(true);
-//            desktopPane.add(internalFrame);
-//
-//            frame.setVisible(true);
-//        });
-//    }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("ARMA TU AREPA");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(800, 600);
+            frame.setLocationRelativeTo(null);
+
+            JDesktopPane desktopPane = new JDesktopPane();
+            frame.add(desktopPane, BorderLayout.CENTER);
+
+            CrearProducto internalFrame = new CrearProducto();
+            internalFrame.setVisible(true);
+            desktopPane.add(internalFrame);
+
+            frame.setVisible(true);
+        });
+    }
 }

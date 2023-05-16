@@ -15,8 +15,6 @@ public class Menu extends javax.swing.JFrame {
     public static String userName = "";
     public static String cedula = "";
     public static String rol = "";
-    
-    
 
     public Menu() {
         initComponents();
@@ -59,9 +57,6 @@ public class Menu extends javax.swing.JFrame {
 
         }
     }
-    
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -236,15 +231,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-
-compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
-c.mostrarVentanaCompra(con.estableceConexion());
-
-      
-
-   
-
-
+        compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
+        c.mostrarVentanaCompra(con.estableceConexion());
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed

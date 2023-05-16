@@ -19,7 +19,7 @@ public class ConexionBD {
     String ip = "localhost";
     String puerto = "3306";
 
-    String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd + "?serverTimezone=UTC";
+    String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;
 
     Connection con;
     Statement stmt;
@@ -62,8 +62,8 @@ public class ConexionBD {
 
     public ResultSet consultaDatos(String query) {
         try {
-            ResultSet rs = stmt.executeQuery(query);
-            return rs;
+            ResultSet rsl = stmt.executeQuery(query);
+            return rsl;
         } catch (SQLException se) {
             System.out.println("SQL Exception:  " + se.getMessage());
             se.printStackTrace(System.out);
@@ -75,3 +75,8 @@ public class ConexionBD {
 
     
 }
+
+    
+
+    
+

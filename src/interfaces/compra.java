@@ -1,11 +1,8 @@
-
 package interfaces;
 
-import interfaces.medio_pago;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class compra extends JPanel {
@@ -217,16 +214,15 @@ public class compra extends JPanel {
         // Botón para vaciar todo el carrito
         JButton FinalizarPedido = new JButton("Finalizar pedido");
         FinalizarPedido.addActionListener(e -> {
-            
+
             JLabel totalLabel = new JLabel();
-            actualizarTotal(totalLabel, true,0);
-            int respuesta = JOptionPane.showConfirmDialog(null, "El total por su pedido es: " + totalLabel.getText()+ "¿Desea ir a pagar?");
-            if(respuesta == JOptionPane.YES_OPTION){
+            actualizarTotal(totalLabel, true, 0);
+            int respuesta = JOptionPane.showConfirmDialog(null, "El total por su pedido es: " + totalLabel.getText() + "¿Desea ir a pagar?");
+            if (respuesta == JOptionPane.YES_OPTION) {
                 medio_pago ventanaPago = new medio_pago();
-                ventanaPago.setVisible(true);
-                ventanaPago.toFront();
+                
+                ventanaPago.show();
             }
-            
 
         });
 
@@ -253,69 +249,10 @@ public class compra extends JPanel {
         totalLabel.setText("Total: $" + total);
     }
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    try {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp", "root", "");
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM productos");
-
-        JDesktopPane desktopPane = new JDesktopPane();
-
-        JInternalFrame frame = new JInternalFrame("MENÚ", true, true, true, true);
-        frame.setSize(1100, 600);
-        frame.setLocation(0, 0);
-        frame.setVisible(true);
-
-        JPanel panel = new JPanel(new GridLayout(0, 3, 3, 0)); // 3 columnas, espaciado horizontal y vertical
-
-        JButton verCarritoBtn = new JButton("Ver Carrito"); // creamos el botón
-        verCarritoBtn.setPreferredSize(new Dimension(20, 40));
-        verCarritoBtn.addActionListener(e -> {
-            crearVentanaCarrito();
-        });
-
-        frame.getContentPane().setBackground(Color.WHITE);
-
-        while (rs.next()) {
-            String nombre = rs.getString("nombreProducto");
-            int precio = rs.getInt("precio");
-            String descripcion = rs.getString("descripcion");
-            byte[] imagenBytes = rs.getBytes("imagen");
-
-            compra compra = new compra(conn, nombre, precio, descripcion, imagenBytes);
-            compra.setBackground(Color.WHITE);
-
-            JButton agregarAlCarritoBtn = compra.getAgregarAlCarritoBtn();
-            JLabel nombreLabel = compra.getNombreLabel();
-            JLabel precioLabel = compra.getPrecioLabel();
-            JTextArea descripcionTextArea = compra.getDescripcionTextArea();
-            JLabel imagenLabel = compra.getImagenLabel();
-
-            panel.setBackground(Color.WHITE);
-            panel.add(compra);
-        }
-
-        frame.add(new JScrollPane(panel), BorderLayout.CENTER);
-        frame.add(verCarritoBtn, BorderLayout.SOUTH);
-        frame.pack();
-
-        desktopPane.add(frame);
-
-        JFrame mainFrame = new JFrame("Aplicación");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(1200, 800);
-        mainFrame.setResizable(false);
-        mainFrame.setContentPane(desktopPane);
-        mainFrame.setVisible(true);
-
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-    }
-}
-
-   public static void mostrarVentanaCompra(Connection conn) {
         try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp", "root", "");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM productos");
 
@@ -363,7 +300,7 @@ public class compra extends JPanel {
 
             JFrame mainFrame = new JFrame("Aplicación");
             mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            mainFrame.setSize(1200, 800);
+            mainFrame.setSize(1100, 600);
             mainFrame.setResizable(false);
             mainFrame.setContentPane(desktopPane);
             mainFrame.setVisible(true);
@@ -371,9 +308,65 @@ public class compra extends JPanel {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }   
-   
-
     }
 
+    public static void mostrarVentanaCompra(Connection conn) {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM productos");
 
+            JDesktopPane desktopPane = new JDesktopPane();
+
+            JInternalFrame frame = new JInternalFrame("MENÚ", true, true, true, true);
+            frame.setSize(1100, 600);
+            frame.setLocation(0, 0);
+            frame.setVisible(true);
+
+            JPanel panel = new JPanel(new GridLayout(0, 3, 3, 0)); // 3 columnas, espaciado horizontal y vertical
+
+            JButton verCarritoBtn = new JButton("Ver Carrito"); // creamos el botón
+            verCarritoBtn.setPreferredSize(new Dimension(20, 40));
+            verCarritoBtn.addActionListener(e -> {
+                crearVentanaCarrito();
+            });
+
+            frame.getContentPane().setBackground(Color.WHITE);
+
+            while (rs.next()) {
+                String nombre = rs.getString("nombreProducto");
+                int precio = rs.getInt("precio");
+                String descripcion = rs.getString("descripcion");
+                byte[] imagenBytes = rs.getBytes("imagen");
+
+                compra compra = new compra(conn, nombre, precio, descripcion, imagenBytes);
+                compra.setBackground(Color.WHITE);
+
+                JButton agregarAlCarritoBtn = compra.getAgregarAlCarritoBtn();
+                JLabel nombreLabel = compra.getNombreLabel();
+                JLabel precioLabel = compra.getPrecioLabel();
+                JTextArea descripcionTextArea = compra.getDescripcionTextArea();
+                JLabel imagenLabel = compra.getImagenLabel();
+
+                panel.setBackground(Color.WHITE);
+                panel.add(compra);
+            }
+
+            frame.add(new JScrollPane(panel), BorderLayout.CENTER);
+            frame.add(verCarritoBtn, BorderLayout.SOUTH);
+            frame.pack();
+
+            desktopPane.add(frame);
+
+            JFrame mainFrame = new JFrame("AREPAPP");
+            mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            mainFrame.setSize(1100, 600);
+            mainFrame.setResizable(false);
+            mainFrame.setContentPane(desktopPane);
+            mainFrame.setVisible(true);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+}

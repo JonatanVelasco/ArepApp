@@ -219,9 +219,11 @@ public class compra extends JPanel {
             actualizarTotal(totalLabel, true, 0);
             int respuesta = JOptionPane.showConfirmDialog(null, "El total por su pedido es: " + totalLabel.getText() + "¿Desea ir a pagar?");
             if (respuesta == JOptionPane.YES_OPTION) {
-                medio_pago ventanaPago = new medio_pago();
                 
+                medio_pago ventanaPago = new medio_pago();
+                Menu.escritorio.add(ventanaPago);
                 ventanaPago.show();
+           
             }
 
         });
@@ -252,7 +254,7 @@ public class compra extends JPanel {
     public static void main(String[] args) {
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp?serverTimezone=UTC", "root", "");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM productos");
 

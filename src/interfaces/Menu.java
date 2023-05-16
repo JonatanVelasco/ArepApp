@@ -1,17 +1,22 @@
 package interfaces;
 
+import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
+import conexion.ConexionBD;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 
 public class Menu extends javax.swing.JFrame {
 
     public static Connection conn;
-
+    conexion.ConexionBD con = new ConexionBD();
     public static String userName = "";
     public static String cedula = "";
     public static String rol = "";
+    
+    
 
     public Menu() {
         initComponents();
@@ -54,6 +59,9 @@ public class Menu extends javax.swing.JFrame {
 
         }
     }
+    
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -229,8 +237,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 
-        compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
-       
+compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
+c.mostrarVentanaCompra(con.estableceConexion());
+
+      
+
+   
 
 
     }//GEN-LAST:event_jMenuItem6ActionPerformed

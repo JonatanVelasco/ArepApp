@@ -40,7 +40,7 @@ public class Login extends javax.swing.JInternalFrame {
         JL_inicioSesion = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
 
         setFocusCycleRoot(false);
         setFocusable(false);
@@ -125,16 +125,15 @@ public class Login extends javax.swing.JInternalFrame {
                 txtPassMouseClicked(evt);
             }
         });
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -151,10 +150,6 @@ public class Login extends javax.swing.JInternalFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtPass))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,10 +222,11 @@ public class Login extends javax.swing.JInternalFrame {
         try {
             ConexionBD conexion = new ConexionBD();
             int rol = 0;
+            String pass = new String(txtPass.getPassword());
             String sql = "SELECT cedula, nombre, apellido, codigo_rol FROM usuarios WHERE usuario = ? AND pass = ?";
             PreparedStatement pstmt = conexion.estableceConexion().prepareStatement(sql);
             pstmt.setString(1, txtCorreo.getText());
-            pstmt.setString(2, txtPass.getText());
+            pstmt.setString(2, pass);
             ResultSet rs = pstmt.executeQuery();
 
             // Obtener el rol del usuario y guardar en la variable "rol"
@@ -253,20 +249,16 @@ public class Login extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_JL_inicioSesionMouseClicked
 
-    private void txtPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseClicked
-        txtPass.setText("");
-    }//GEN-LAST:event_txtPassMouseClicked
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         RegistroUsuario registro = new RegistroUsuario();
         Menu.escritorio.add(registro);
         registro.show();
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void txtPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassMouseClicked
+       txtPass.setText("");
+    }//GEN-LAST:event_txtPassMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -282,6 +274,6 @@ public class Login extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
 }

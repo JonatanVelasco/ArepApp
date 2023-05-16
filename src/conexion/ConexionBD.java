@@ -19,7 +19,7 @@ public class ConexionBD {
     String ip = "localhost";
     String puerto = "3306";
 
-    String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;
+    String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd + "?serverTimezone=UTC";
 
     Connection con;
     Statement stmt;

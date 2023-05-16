@@ -236,6 +236,8 @@ public class Login extends javax.swing.JInternalFrame {
                 Menu.rol= rs.getString("codigo_rol");
                 Menu.checkUser();
                 dispose();
+                JOptionPane.showMessageDialog(null, "Acceso Correcto");
+                
             }
             else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña Incorrectos");

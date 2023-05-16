@@ -301,7 +301,7 @@
                   <Font name="Nirmala UI" size="48" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Gestion de productos"/>
+                <Property name="text" type="java.lang.String" value="GESTI&#xd3;N DE PRODUCTOS"/>
               </Properties>
             </Component>
           </SubComponents>

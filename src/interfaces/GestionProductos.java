@@ -144,7 +144,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Nirmala UI", 1, 48)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Gestion de productos");
+        jLabel6.setText("GESTIÓN DE PRODUCTOS");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

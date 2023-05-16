@@ -64,7 +64,7 @@ public class Entregas extends javax.swing.JInternalFrame {
         jLabel9.setBackground(new java.awt.Color(153, 204, 255));
         jLabel9.setFont(new java.awt.Font("Nirmala UI", 1, 48)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("GESTION DE ENTREGAS");
+        jLabel9.setText("GESTIÓN DE ENTREGAS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +85,7 @@ public class Entregas extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Codigo");
+        jLabel1.setText("Código");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(6, 199, 65, 26);
 
@@ -132,7 +132,7 @@ public class Entregas extends javax.swing.JInternalFrame {
         bto_actualizar.setBounds(359, 237, 89, 27);
 
         jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField1.setText("observaciones");
+        jTextField1.setText("Observaciones");
         getContentPane().add(jTextField1);
         jTextField1.setBounds(359, 199, 116, 26);
 
@@ -202,11 +202,11 @@ public class Entregas extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(126, 126, 126)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()

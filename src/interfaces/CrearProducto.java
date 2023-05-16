@@ -136,7 +136,7 @@ public class CrearProducto extends JInternalFrame {
     }
 
     private void cargarElementosDesdeDB(String tabla, JPanel panel) {
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp", "root", ""); PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + tabla + " WHERE estado = 'Disponible'"); ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp?serverTimezone=UTC", "root", ""); PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + tabla + " WHERE estado = 'Disponible'"); ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 String nombre = rs.getString("nombre");

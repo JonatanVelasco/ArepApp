@@ -186,6 +186,11 @@ public class pedido_activo extends javax.swing.JInternalFrame {
 
         btom_comprar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btom_comprar.setText("Ir a comprar");
+        btom_comprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btom_comprarActionPerformed(evt);
+            }
+        });
 
         bton_historials.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bton_historials.setText("Historial de pedidos");
@@ -289,7 +294,9 @@ public class pedido_activo extends javax.swing.JInternalFrame {
                                     .addComponent(label_totalPagar)))
                             .addGroup(panel_activoLayout.createSequentialGroup()
                                 .addComponent(label_notienes)
+                                .addGap(0, 0, 0)
                                 .addComponent(btom_comprar)
+                                .addGap(0, 0, 0)
                                 .addComponent(bton_historialn))))
                     .addComponent(label_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -350,6 +357,12 @@ public class pedido_activo extends javax.swing.JInternalFrame {
         hp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bton_historialsActionPerformed
+
+    private void btom_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btom_comprarActionPerformed
+        ConexionBD con = new ConexionBD();
+        compra c = new compra(null, "Nombre del producto", 10, "Descripción del producto", new byte[0]);
+        c.mostrarVentanaCompra(con.estableceConexion());
+    }//GEN-LAST:event_btom_comprarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btom_comprar;

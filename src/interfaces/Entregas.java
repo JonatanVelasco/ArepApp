@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,8 +18,10 @@ import javax.swing.table.DefaultTableModel;
  * @author FAMILIA S
  */
 public class Entregas extends javax.swing.JInternalFrame {
- ConexionBD cone;
+
+    ConexionBD cone;
     DefaultTableModel modelo;
+
     public Entregas() {
         initComponents();
         cone = new ConexionBD();
@@ -51,11 +54,11 @@ public class Entregas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_estado = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         txt_obvs = new javax.swing.JTextField();
         bto_actualizar = new javax.swing.JButton();
         bto_enviar = new javax.swing.JButton();
+        txt_estado = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -140,7 +143,7 @@ public class Entregas extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Código");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(50, 20, 65, 26);
+        jLabel1.setBounds(70, 20, 65, 26);
 
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,31 +156,13 @@ public class Entregas extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(txt_codigo);
-        txt_codigo.setBounds(120, 20, 100, 30);
+        txt_codigo.setBounds(160, 20, 100, 30);
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Estado");
+        jLabel2.setText("Observaciones");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(300, 20, 53, 30);
-
-        txt_estado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_estadoActionPerformed(evt);
-            }
-        });
-        txt_estado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_estadoKeyTyped(evt);
-            }
-        });
-        jPanel2.add(txt_estado);
-        txt_estado.setBounds(360, 20, 99, 30);
-
-        jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField1.setText("Observaciones");
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(470, 20, 116, 30);
+        jLabel2.setBounds(490, 20, 120, 20);
 
         txt_obvs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +175,7 @@ public class Entregas extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(txt_obvs);
-        txt_obvs.setBounds(630, 20, 261, 30);
+        txt_obvs.setBounds(620, 20, 261, 30);
 
         bto_actualizar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_actualizar.setText("Actualizar");
@@ -210,7 +195,22 @@ public class Entregas extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(bto_enviar);
-        bto_enviar.setBounds(900, 20, 72, 27);
+        bto_enviar.setBounds(890, 20, 72, 27);
+
+        txt_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asignado", "Proceso", "Enviado", "Finalizado" }));
+        txt_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_estadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_estado);
+        txt_estado.setBounds(350, 20, 90, 22);
+
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Estado");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(290, 20, 53, 20);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(-40, 190, 1210, 300);
@@ -222,16 +222,13 @@ public class Entregas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoActionPerformed
 
-    private void txt_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_estadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_estadoActionPerformed
-
     private void bto_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_actualizarActionPerformed
-   cone.modificaDatos("UPDATE pedidos SET estado='" + txt_estado.getText() + "' WHERE codigo=" + txt_codigo.getText());
+        cone.modificaDatos("UPDATE pedidos SET estado='" + txt_estado.getSelectedItem() + "' WHERE codigo=" + txt_codigo.getText());
+        JOptionPane.showMessageDialog(rootPane, "Se actualizo el estado del producto");
         consultar();    }//GEN-LAST:event_bto_actualizarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-cone.modificaDatos("UPDATE pedidos SET total='" + txt_dinero.getText() + "' WHERE codigo=" + txt_codigo.getText());
+        cone.modificaDatos("UPDATE pedidos SET total='" + txt_dinero.getText() + "' WHERE codigo=" + txt_codigo.getText());
         consultar();       }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txt_obvsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_obvsActionPerformed
@@ -239,32 +236,33 @@ cone.modificaDatos("UPDATE pedidos SET total='" + txt_dinero.getText() + "' WHER
     }//GEN-LAST:event_txt_obvsActionPerformed
 
     private void bto_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_enviarActionPerformed
-cone.modificaDatos("UPDATE pedidos SET observacion_entrega='" + txt_obvs.getText() + "' WHERE codigo=" + txt_codigo.getText());
+        cone.modificaDatos("UPDATE pedidos SET observacion_entrega='" + txt_obvs.getText() + "' WHERE codigo=" + txt_codigo.getText());
         consultar();      }//GEN-LAST:event_bto_enviarActionPerformed
 
     private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
- char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (c < '0' || c > '9')
-            evt.consume();   
+            evt.consume();
     }//GEN-LAST:event_txt_codigoKeyTyped
 
     private void txt_dineroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dineroKeyTyped
- char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (c < '0' || c > '9')
             evt.consume();       }//GEN-LAST:event_txt_dineroKeyTyped
 
-    private void txt_estadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_estadoKeyTyped
-char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
-            evt.consume();
-    }//GEN-LAST:event_txt_estadoKeyTyped
-
     private void txt_obvsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_obvsKeyTyped
-char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
-            evt.consume();    }//GEN-LAST:event_txt_obvsKeyTyped
+       char validar = evt.getKeyChar();
 
- public void consultar() {
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+        
+            evt.consume();    }//GEN-LAST:event_txt_obvsKeyTyped
+    }
+    private void txt_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_estadoActionPerformed
+
+    }//GEN-LAST:event_txt_estadoActionPerformed
+
+    public void consultar() {
         try {
             ResultSet rs1 = cone.consultaDatos("SELECT * FROM pedidos");
             String[] columnNames = {"codigo", "fecha", "hora", "metodopago", "total", "cedula_usuario", "num_doc_domiciliario", "estado", "direccion_envio", "observacion_pedido", "observacion_entrega"};
@@ -296,16 +294,16 @@ char c = evt.getKeyChar();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_dinero;
-    private javax.swing.JTextField txt_estado;
+    private javax.swing.JComboBox<String> txt_estado;
     private javax.swing.JTextField txt_obvs;
     // End of variables declaration//GEN-END:variables
 }

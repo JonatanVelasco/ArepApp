@@ -1,6 +1,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.logging.Level;
@@ -22,6 +23,9 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         String[] columnNames = {"cedula", "nombre", "apellido", "direccion", "celular", "usuario", "pass", "codigo_rol"};
         modelo = new DefaultTableModel(null, columnNames);
         updateTable("");
+        this.setSize(new Dimension(1190, 567));
+
+        this.setMinimumSize(new Dimension(1190, 567));
 
     }
 
@@ -31,12 +35,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -48,10 +46,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         txtapellido = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         txtcedula = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         txtusuario = new javax.swing.JTextField();
         txtpass = new javax.swing.JTextField();
         cbxrol = new javax.swing.JComboBox<>();
@@ -59,6 +53,14 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         tabla1 = new javax.swing.JTable();
         search = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -67,43 +69,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 204, 255));
         jPanel3.setLayout(null);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
-
-        jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Direccion");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, 160, 80, 30);
-
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Celular");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 210, 80, 30);
-
-        jLabel11.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Nombre");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(0, 60, 80, 30);
-
-        jLabel12.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Apellido");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(0, 110, 80, 30);
-
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Cedula");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(0, 10, 80, 30);
-
-        jPanel3.add(jPanel1);
-        jPanel1.setBounds(20, 170, 80, 260);
 
         jPanel5.setBackground(new java.awt.Color(153, 204, 255));
         jPanel5.setForeground(new java.awt.Color(153, 204, 255));
@@ -119,6 +84,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         jPanel5.setBounds(0, 0, 1550, 160);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(null);
 
         btmodificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modificar png.png"))); // NOI18N
@@ -129,6 +95,8 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                 btmodificarActionPerformed(evt);
             }
         });
+        jPanel7.add(btmodificar);
+        btmodificar.setBounds(559, 292, 140, 50);
 
         bteliminar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bteliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/elimanr png.png"))); // NOI18N
@@ -139,6 +107,8 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                 bteliminarActionPerformed(evt);
             }
         });
+        jPanel7.add(bteliminar);
+        bteliminar.setBounds(717, 292, 140, 50);
 
         btguardar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardarpng.png"))); // NOI18N
@@ -149,59 +119,61 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
                 btguardarActionPerformed(evt);
             }
         });
+        jPanel7.add(btguardar);
+        btguardar.setBounds(340, 190, 160, 50);
 
         txtcelular.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcelularKeyTyped(evt);
             }
         });
+        jPanel7.add(txtcelular);
+        txtcelular.setBounds(90, 220, 165, 30);
 
+        txtdireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdireccionActionPerformed(evt);
+            }
+        });
         txtdireccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtdireccionKeyTyped(evt);
             }
         });
+        jPanel7.add(txtdireccion);
+        txtdireccion.setBounds(90, 170, 165, 30);
 
         txtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtapellidoKeyTyped(evt);
             }
         });
+        jPanel7.add(txtapellido);
+        txtapellido.setBounds(90, 120, 165, 30);
 
         txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnombreKeyTyped(evt);
             }
         });
+        jPanel7.add(txtnombre);
+        txtnombre.setBounds(90, 70, 165, 30);
 
         txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcedulaKeyTyped(evt);
             }
         });
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
-
-        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Pass");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(-10, 60, 90, 30);
-
-        jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Usuario");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(-10, 0, 90, 30);
-
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Codigo");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(-10, 120, 90, 30);
+        jPanel7.add(txtcedula);
+        txtcedula.setBounds(90, 20, 165, 30);
+        jPanel7.add(txtusuario);
+        txtusuario.setBounds(350, 20, 170, 30);
+        jPanel7.add(txtpass);
+        txtpass.setBounds(350, 80, 170, 30);
 
         cbxrol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigos de rol", "500", "501", "502", "503", " " }));
+        jPanel7.add(cbxrol);
+        cbxrol.setBounds(350, 120, 170, 30);
 
         tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -210,87 +182,71 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tabla1);
 
+        jPanel7.add(jScrollPane2);
+        jScrollPane2.setBounds(530, 50, 625, 230);
+
         search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchKeyReleased(evt);
             }
         });
+        jPanel7.add(search);
+        search.setBounds(600, 10, 172, 30);
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Buscador");
+        jPanel7.add(jLabel4);
+        jLabel4.setBounds(530, 10, 64, 30);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxrol, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(btmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bteliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(cbxrol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bteliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Celular");
+        jPanel7.add(jLabel1);
+        jLabel1.setBounds(10, 220, 80, 30);
+
+        jLabel11.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Nombre");
+        jPanel7.add(jLabel11);
+        jLabel11.setBounds(10, 70, 80, 30);
+
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Direccion");
+        jPanel7.add(jLabel6);
+        jLabel6.setBounds(10, 170, 80, 30);
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Cedula");
+        jPanel7.add(jLabel8);
+        jLabel8.setBounds(10, 20, 80, 30);
+
+        jLabel12.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Apellido");
+        jPanel7.add(jLabel12);
+        jLabel12.setBounds(10, 120, 80, 30);
+
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Usuario");
+        jPanel7.add(jLabel3);
+        jLabel3.setBounds(260, 20, 90, 30);
+
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Pass");
+        jPanel7.add(jLabel5);
+        jLabel5.setBounds(260, 80, 90, 30);
+
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Codigo");
+        jPanel7.add(jLabel2);
+        jLabel2.setBounds(260, 120, 90, 30);
 
         jPanel3.add(jPanel7);
         jPanel7.setBounds(0, 160, 1550, 370);
@@ -299,7 +255,7 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1312, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1178, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,6 +417,10 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
         updateTable("");
     }//GEN-LAST:event_bteliminarActionPerformed
 
+    private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdireccionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bteliminar;
@@ -477,8 +437,6 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;

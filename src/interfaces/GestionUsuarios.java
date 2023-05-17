@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle.Control;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class GestionUsuarios extends javax.swing.JInternalFrame {
@@ -364,47 +365,65 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
 
     private void btguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btguardarActionPerformed
 
-        String Tipo_rol = null;
-        switch (cbxrol.getSelectedIndex()) {
-            case 1:
-                Tipo_rol = "500";
-            case 2:
-                Tipo_rol = "501";
-            case 3:
-                Tipo_rol = "502";
-            case 4:
-                Tipo_rol = "503";
-                break;
+        if (txtcedula.getText().trim().isEmpty() || txtnombre.getText().trim().isEmpty()
+                || txtapellido.getText().trim().isEmpty() || txtdireccion.getText().trim().isEmpty()
+                || txtcelular.getText().trim().isEmpty() || txtusuario.getText().trim().isEmpty()
+                || txtpass.getText().trim().isEmpty()) {
 
-            default:
-                throw new AssertionError();
+            JOptionPane.showMessageDialog(rootPane, "Rellene todos los campos");
+        } else {
+
+            String Tipo_rol = null;
+            switch (cbxrol.getSelectedIndex()) {
+                case 1:
+                    Tipo_rol = "500";
+                case 2:
+                    Tipo_rol = "501";
+                case 3:
+                    Tipo_rol = "502";
+                case 4:
+                    Tipo_rol = "503";
+                    break;
+
+                default:
+                    throw new AssertionError();
+            }
+
+            cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
+            updateTable("");
+            JOptionPane.showMessageDialog(rootPane, "Se a guardado con exito");
         }
-
-        cone.modificaDatos("INSERT INTO usuarios (cedula, nombre, apellido, direccion, celular, usuario, pass, codigo_rol) VALUES ('" + txtcedula.getText() + "','" + txtnombre.getText() + "','" + txtapellido.getText() + "','" + txtdireccion.getText() + "','" + txtcelular.getText() + "','" + txtusuario.getText() + "','" + txtpass.getText() + "','" + Tipo_rol + "')");
-        updateTable("");
     }//GEN-LAST:event_btguardarActionPerformed
 
     private void btmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmodificarActionPerformed
+        if (txtcedula.getText().trim().isEmpty() || txtnombre.getText().trim().isEmpty()
+                || txtapellido.getText().trim().isEmpty() || txtdireccion.getText().trim().isEmpty()
+                || txtcelular.getText().trim().isEmpty() || txtusuario.getText().trim().isEmpty()
+                || txtpass.getText().trim().isEmpty()) {
 
-        String Tipo_rol1 = null;
-        switch (cbxrol.getSelectedIndex()) {
-            case 1:
-                Tipo_rol1 = "500";
-            case 2:
-                Tipo_rol1 = "501";
-            case 3:
-                Tipo_rol1 = "502";
-            case 4:
-                Tipo_rol1 = "503";
-                break;
+            JOptionPane.showMessageDialog(rootPane, "Rellene todos los campos");
+        } else {
+            String Tipo_rol1 = null;
+            switch (cbxrol.getSelectedIndex()) {
+                case 1:
+                    Tipo_rol1 = "500";
+                case 2:
+                    Tipo_rol1 = "501";
+                case 3:
+                    Tipo_rol1 = "502";
+                case 4:
+                    Tipo_rol1 = "503";
+                    break;
 
-            default:
-                throw new AssertionError();
+                default:
+                    throw new AssertionError();
+            }
+
+            cone.modificaDatos("UPDATE usuarios SET nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "' WHERE cedula=" + txtcedula.getText());
+            updateTable("");
+            JOptionPane.showMessageDialog(rootPane, "Se a modificado con exito");
+
         }
-
-        cone.modificaDatos("UPDATE usuarios SET nombre ='" + txtnombre.getText() + "', apellido='" + txtapellido.getText() + "', celular='" + txtcelular.getText() + "', usuario='" + txtusuario.getText() + "', pass='" + txtpass.getText() + "', codigo_rol='" + Tipo_rol1 + "' WHERE cedula=" + txtcedula.getText());
-        updateTable("");
-
     }//GEN-LAST:event_btmodificarActionPerformed
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
@@ -412,9 +431,15 @@ public class GestionUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_searchKeyReleased
 
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
+        if (txtcedula.getText().trim().isEmpty()) {
 
-        cone.modificaDatos("DELETE FROM usuarios WHERE cedula=" + txtcedula.getText());
-        updateTable("");
+            JOptionPane.showMessageDialog(rootPane, "Debes Seleccionar un producto para modificarlo");
+        } else {
+            cone.modificaDatos("DELETE FROM usuarios WHERE cedula=" + txtcedula.getText());
+            updateTable("");
+            JOptionPane.showMessageDialog(rootPane, "Se a eliminado correctamente");
+
+        }
     }//GEN-LAST:event_bteliminarActionPerformed
 
     private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed

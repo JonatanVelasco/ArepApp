@@ -20,16 +20,9 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        checkUser();
-        pack();
+        this.setSize(new Dimension(1200, 680));
 
-                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                Rectangle bounds = ge.getMaximumWindowBounds();
-                
-                setSize(bounds.width, bounds.height);
-                setLocationRelativeTo(null);
-                setLayout(new BorderLayout());
+        this.setMinimumSize(new Dimension(1200, 680));
 
     }
 
@@ -64,7 +57,8 @@ public class Menu extends javax.swing.JFrame {
                 }
 
             }
-
+ 
+            
         }
     }
 

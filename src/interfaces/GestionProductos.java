@@ -12,7 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;                
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,7 +92,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jLabel_imagen);
-        jLabel_imagen.setBounds(20, 430, 190, 150);
+        jLabel_imagen.setBounds(30, 380, 190, 150);
 
         txtBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +117,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCargarImagen);
-        btnCargarImagen.setBounds(740, 430, 141, 29);
+        btnCargarImagen.setBounds(30, 540, 141, 29);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
@@ -192,7 +193,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtdCodigo);
-        txtdCodigo.setBounds(30, 160, 162, 22);
+        txtdCodigo.setBounds(30, 160, 162, 30);
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -200,7 +201,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtNombre);
-        txtNombre.setBounds(30, 230, 162, 22);
+        txtNombre.setBounds(30, 230, 162, 30);
 
         txtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +214,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtPrecio);
-        txtPrecio.setBounds(30, 310, 162, 22);
+        txtPrecio.setBounds(30, 310, 162, 30);
 
         tablaProductos.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -260,7 +261,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel8.setText("Imagen");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 410, 46, 20);
+        jLabel8.setBounds(30, 350, 46, 20);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -273,7 +274,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,40 +319,61 @@ public class GestionProductos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCargarImagenActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Productos productos = new Productos();
-        productos.InsertarProducto(txtNombre, txtPrecio, ruta, txtDescripcion);
-        productos.MostrarProductos();
 
-        txtNombre.setText("");
-        txtPrecio.setText("");
-        txtDescripcion.setText("");
+        if (txtNombre.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty()
+                || ruta.trim().isEmpty() || txtDescripcion.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(rootPane, "Rellenar todos los campos");
+        } else {
+
+            Productos productos = new Productos();
+            productos.InsertarProducto(txtNombre, txtPrecio, ruta, txtDescripcion);
+            productos.MostrarProductos();
+
+            txtNombre.setText("");
+            txtPrecio.setText("");
+            txtDescripcion.setText("");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-        Productos productos = new Productos();
-        try {
-            productos.ModificarProducto(txtdCodigo, txtNombre, txtPrecio, ruta, txtDescripcion);
-        } catch (SQLException ex) {
-            Logger.getLogger(GestionProductos.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GestionProductos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        if (txtNombre.getText().trim().isEmpty()) {
 
-        txtNombre.setText("");
-        txtPrecio.setText("");
-        txtDescripcion.setText("");
+            JOptionPane.showMessageDialog(rootPane, "Debes Seleccionar un producto para modificarlo");
+        } else {
+            Productos productos = new Productos();
+            try {
+                productos.ModificarProducto(txtdCodigo, txtNombre, txtPrecio, ruta, txtDescripcion);
+            } catch (SQLException ex) {
+                Logger.getLogger(GestionProductos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GestionProductos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            txtNombre.setText("");
+            txtPrecio.setText("");
+            txtDescripcion.setText("");
+
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Productos productos = new Productos();
-        productos.Eliminarproducto(txtdCodigo);
-        productos.MostrarProductos();
 
-        txtdCodigo.setText("");
-        txtNombre.setText("");
-        txtPrecio.setText("");
-        txtDescripcion.setText("");
+        if (txtNombre.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(rootPane, "Debes Seleccionar un producto para eliminarlo");
+        } else {
+
+            Productos productos = new Productos();
+            productos.Eliminarproducto(txtdCodigo);
+            productos.MostrarProductos();
+
+            txtdCodigo.setText("");
+            txtNombre.setText("");
+            txtPrecio.setText("");
+            txtDescripcion.setText("");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtdCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdCodigoActionPerformed

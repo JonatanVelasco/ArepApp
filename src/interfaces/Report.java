@@ -11,6 +11,16 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import javax.swing.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.*;
+
+
 
 /**
  *
@@ -20,7 +30,7 @@ public class Report extends javax.swing.JInternalFrame {
 
    ConexionBD cone;
     DefaultTableModel modelo;
-    
+    Connection conn=null;
     public Report() {
         initComponents();
         cone = new ConexionBD();
@@ -30,7 +40,10 @@ public class Report extends javax.swing.JInternalFrame {
         this.setSize(new Dimension(716, 338));
 
         this.setMinimumSize(new Dimension(716, 338));
+        
+ 
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +66,7 @@ public class Report extends javax.swing.JInternalFrame {
         tabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        bto_pdf = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -127,7 +141,7 @@ public class Report extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(160, 276, 72, 23);
+        jButton1.setBounds(160, 276, 90, 23);
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,15 +167,28 @@ public class Report extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        bto_pdf.setText("Mostrar en pdf");
+        bto_pdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bto_pdfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(bto_pdf)
+                .addContainerGap(440, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(170, Short.MAX_VALUE)
+                .addComponent(bto_pdf)
+                .addGap(17, 17, 17))
         );
 
         getContentPane().add(jPanel2);
@@ -189,6 +216,35 @@ public class Report extends javax.swing.JInternalFrame {
     private void txt_diasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_diasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_diasActionPerformed
+
+    private void bto_pdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_pdfActionPerformed
+try{
+Class.forName("com.mysql.jdbc.Driver");
+
+conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/arepapp","root","");
+JasperDesign jdesign = JRXmlLoader.load("D:\\Perfil FamiliaS\\Documents\\c\\ArepApp\\src\\Report\\report1.jrxml");
+
+String query = "SELECT * FROM venta1";
+
+JRDesignQuery updateQuery = new JRDesignQuery();
+
+updateQuery.setText(query);
+
+jdesign.setQuery(updateQuery);
+
+JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+
+JasperPrint jprint = JasperFillManager.fillReport(jreport, null,conn);
+
+JasperViewer.viewReport(jprint);
+
+JOptionPane.showMessageDialog(null,"Conexiónestablecida");
+}
+ catch(Exception ex)
+ {
+  ex.printStackTrace();
+ }
+    }//GEN-LAST:event_bto_pdfActionPerformed
 public void consultar() {
         try {
             ResultSet rs1 = cone.consultaDatos("SELECT * FROM venta1");
@@ -208,7 +264,9 @@ public void consultar() {
         }
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bto_pdf;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

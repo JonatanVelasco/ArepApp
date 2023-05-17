@@ -14,10 +14,10 @@ public class CrearProducto extends JInternalFrame {
     private JLabel labelTotal;
 
     public CrearProducto() {
-        super("", true, true, true, true);
-        setSize(400, 300);
-        setLocation(50, 50);
-
+        super("", false, true, true, true);
+        setSize(638, 320);
+        setLocation(0, 0);
+        
         panelIngredientes = new JPanel(new GridLayout(0, 2));
         panelIngredientes.setBorder(BorderFactory.createTitledBorder("Ingredientes"));
         panelIngredientes.setLayout(new BoxLayout(panelIngredientes, BoxLayout.Y_AXIS));
@@ -64,7 +64,7 @@ public class CrearProducto extends JInternalFrame {
         cargarElementosDesdeDB("salsas", panelSalsas);
 
         JPanel panelPrincipal = new JPanel(new GridLayout(1, 3));
-        
+
         panelPrincipal.add(panelIngredientes);
         panelPrincipal.add(panelBases);
         panelPrincipal.add(panelSalsas);
@@ -106,13 +106,11 @@ public class CrearProducto extends JInternalFrame {
 
         // Crear panel de botones
         JButton btnFinalizarPedido = new JButton("Finalizar Pedido");
-        btnFinalizarPedido.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                medio_pago ventanaPago = new medio_pago();
-                Menu.escritorio.add(ventanaPago);
-                ventanaPago.show();
-                CrearProducto.this.dispose();
-            }
+        btnFinalizarPedido.addActionListener(e -> {
+
+//            medio_pago pg = new medio_pago();
+//            Menu.escritorio.add(pg);
+//            pg.setVisible(true);
         });
 
         // Agregar los componentes al panel principal
@@ -131,7 +129,6 @@ public class CrearProducto extends JInternalFrame {
         panelPrincipal.setPreferredSize(getSize());
         setContentPane(contentPane);
         setVisible(true);
-    
 
     }
 
@@ -165,7 +162,7 @@ public class CrearProducto extends JInternalFrame {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("ARMA TU AREPA");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(800, 600);
+            frame.setSize(650, 350);
             frame.setLocationRelativeTo(null);
 
             JDesktopPane desktopPane = new JDesktopPane();

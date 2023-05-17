@@ -2,6 +2,7 @@ package interfaces;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyVetoException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -219,11 +220,11 @@ public class compra extends JPanel {
             actualizarTotal(totalLabel, true, 0);
             int respuesta = JOptionPane.showConfirmDialog(null, "El total por su pedido es: " + totalLabel.getText() + "¿Desea ir a pagar?");
             if (respuesta == JOptionPane.YES_OPTION) {
-                
+
                 medio_pago ventanaPago = new medio_pago();
                 Menu.escritorio.add(ventanaPago);
                 ventanaPago.show();
-           
+
             }
 
         });
@@ -312,7 +313,7 @@ public class compra extends JPanel {
         }
     }
 
-    public static void mostrarVentanaCompra(Connection conn) {
+    public static void mostrarVentanaCompra(Connection conn){
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM productos");
@@ -320,9 +321,10 @@ public class compra extends JPanel {
             JDesktopPane desktopPane = new JDesktopPane();
 
             JInternalFrame frame = new JInternalFrame("MENÚ", true, true, true, true);
-            frame.setSize(1100, 600);
+            frame.setSize(1200, 700);
             frame.setLocation(0, 0);
             frame.setVisible(true);
+            
 
             JPanel panel = new JPanel(new GridLayout(0, 3, 3, 0)); // 3 columnas, espaciado horizontal y vertical
 
@@ -361,10 +363,12 @@ public class compra extends JPanel {
 
             JFrame mainFrame = new JFrame("AREPAPP");
             mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            mainFrame.setSize(1100, 600);
+            mainFrame.setSize(1200, 700);
             mainFrame.setResizable(false);
             mainFrame.setContentPane(desktopPane);
             mainFrame.setVisible(true);
+            mainFrame.setLocationRelativeTo(null);
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();

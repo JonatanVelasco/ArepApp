@@ -3,8 +3,11 @@ package interfaces;
 import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
 import conexion.ConexionBD;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.*;
 
 public class Menu extends javax.swing.JFrame {
@@ -21,9 +24,13 @@ public class Menu extends javax.swing.JFrame {
         checkUser();
         pack();
 
-        this.setSize(new Dimension(1200, 680));
+                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                Rectangle bounds = ge.getMaximumWindowBounds();
+                
+                setSize(bounds.width, bounds.height);
+                setLocationRelativeTo(null);
+                setLayout(new BorderLayout());
 
-        this.setMinimumSize(new Dimension(1200, 680));
     }
 
     public static void checkUser() {
@@ -215,8 +222,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         CrearProducto Cp = new CrearProducto();
-        escritorio.add(Cp);
+        escritorio.add(Cp); 
         Cp.show();
+        Cp.toFront();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08d80945-7e0d-41c7-b66e-067ae5ef5b81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM venta1]]>
+	</queryString>
+	<field name="mes" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ventas_dia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dias_trabajados" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="0" width="239" height="35" uuid="19809a86-e72d-4980-bf42-5f18fb8fedf7"/>
+				<textElement>
+					<font fontName="Nirmala UI" size="24"/>
+				</textElement>
+				<text><![CDATA[Reportes de ventas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="22" width="100" height="20" uuid="26c0b165-1a48-4b6d-ad39-889622594595"/>
+				<text><![CDATA[mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="22" width="100" height="20" uuid="b4d11460-8724-422d-b505-7da33385fd83"/>
+				<text><![CDATA[ventas_dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="22" width="100" height="20" uuid="5481c5d4-dc57-4853-b762-b9da85590ba3"/>
+				<text><![CDATA[dias_trabajados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="22" width="79" height="20" uuid="3942b485-5294-43b5-9bfc-f2f71bc69ed5"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="21" width="100" height="20" uuid="ecee45a7-1b99-4b11-976b-855aa1628c23"/>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="21" width="100" height="20" uuid="3697ff9e-94e9-49e7-bb8a-fbd2c89c8210"/>
+				<textFieldExpression><![CDATA[$F{ventas_dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="21" width="100" height="20" uuid="bf3d8e6e-b39a-41d5-9bed-30f039f3c517"/>
+				<textFieldExpression><![CDATA[$F{dias_trabajados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="21" width="79" height="20" uuid="f9f4fdbc-4eae-442c-a3ab-b22659b1a212"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

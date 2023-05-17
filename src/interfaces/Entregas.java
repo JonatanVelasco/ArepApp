@@ -200,7 +200,7 @@ public class Entregas extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(bto_actualizar);
-        bto_actualizar.setBounds(500, 60, 89, 27);
+        bto_actualizar.setBounds(500, 60, 120, 27);
 
         bto_enviar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         bto_enviar.setText("Enviar");

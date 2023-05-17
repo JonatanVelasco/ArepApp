@@ -1,6 +1,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +18,9 @@ public class pedido_activo extends javax.swing.JInternalFrame {
         initComponents();
         cone = new ConexionBD();
         VerActivo();
+        this.setSize(new Dimension(962, 470));
+
+        this.setMinimumSize(new Dimension(755, 500));
     }
 
     public void VerActivo() {

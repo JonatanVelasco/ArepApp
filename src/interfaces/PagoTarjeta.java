@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author Usuario
@@ -15,6 +17,10 @@ public class PagoTarjeta extends javax.swing.JInternalFrame {
      */
     public PagoTarjeta() {
         initComponents();
+        
+        this.setSize(new Dimension(508, 574));
+
+        this.setMinimumSize(new Dimension(508, 574));
     }
 
     /**

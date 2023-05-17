@@ -2,6 +2,7 @@ package interfaces;
 
 import conexion.ConexionBD;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -20,6 +21,9 @@ public class historial_pedidos extends javax.swing.JInternalFrame {
         initComponents();
         cone = new ConexionBD();
         verHistorial();
+        this.setSize(new Dimension(478, 397));
+
+        this.setMinimumSize(new Dimension(478, 397));
 
     }
 

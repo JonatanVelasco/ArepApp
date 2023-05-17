@@ -5,6 +5,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.sql.CallableStatement;
 import javax.swing.Icon;
@@ -23,6 +24,9 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
      */
     public RegistroUsuario() {
         initComponents();
+        this.setSize(new Dimension(726, 532));
+
+        this.setMinimumSize(new Dimension(726, 532));
 
 //        SetImageLabel(JFlecha, "src/Imagenes/flecha.png");
     }
@@ -65,10 +69,13 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         flecha = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registrate");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(230, 20, 245, 50);
 
         txtCedula.setBorder(null);
         txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -76,6 +83,8 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 txtCedulaKeyTyped(evt);
             }
         });
+        jPanel1.add(txtCedula);
+        txtCedula.setBounds(387, 292, 245, 24);
 
         txtApellido.setBorder(null);
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
@@ -88,9 +97,13 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 txtApellidoKeyTyped(evt);
             }
         });
+        jPanel1.add(txtApellido);
+        txtApellido.setBounds(88, 219, 245, 22);
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel4.setText("Nombre");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(88, 113, 69, 25);
 
         txtDireccion.setBorder(null);
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -98,9 +111,13 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 txtDireccionActionPerformed(evt);
             }
         });
+        jPanel1.add(txtDireccion);
+        txtDireccion.setBounds(88, 294, 245, 22);
 
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel5.setText("Direccion");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(88, 263, 80, 25);
 
         txtCelular.setBorder(null);
         txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -108,6 +125,8 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 txtCelularKeyTyped(evt);
             }
         });
+        jPanel1.add(txtCelular);
+        txtCelular.setBounds(88, 369, 245, 24);
 
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -120,11 +139,29 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 txtNombreKeyTyped(evt);
             }
         });
+        jPanel1.add(txtNombre);
+        txtNombre.setBounds(88, 144, 245, 22);
 
         jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel7.setText("Apellido");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(88, 188, 71, 25);
 
         txtContraseña.setBorder(null);
+        jPanel1.add(txtContraseña);
+        txtContraseña.setBounds(387, 217, 245, 22);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(88, 172, 245, 10);
+        jPanel1.add(jSeparator2);
+        jSeparator2.setBounds(88, 247, 245, 10);
+        jPanel1.add(jSeparator3);
+        jSeparator3.setBounds(88, 322, 245, 10);
+        jPanel1.add(jSeparator4);
+        jSeparator4.setBounds(88, 399, 245, 12);
+        jPanel1.add(jSeparator5);
+        jSeparator5.setBounds(387, 170, 245, 10);
+        jPanel1.add(jSeparator6);
+        jSeparator6.setBounds(387, 245, 245, 10);
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -142,26 +179,46 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(230, 440, 245, 39);
+        jPanel1.add(jSeparator7);
+        jSeparator7.setBounds(387, 322, 245, 10);
+
         jLabel10.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel10.setText("Celular");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(88, 338, 59, 25);
 
         jLabel11.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel11.setText("Nombre Usuario");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(387, 113, 139, 25);
 
         jLabel12.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel12.setText("Cedula");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(387, 261, 58, 25);
 
         jLabel13.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jLabel13.setText("Contraseña");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(387, 186, 96, 25);
 
         txtUsuario.setBorder(null);
+        jPanel1.add(txtUsuario);
+        txtUsuario.setBounds(387, 144, 245, 22);
+        jPanel1.add(JFlecha);
+        JFlecha.setBounds(16, 640, 57, 45);
 
         flecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha (1).png"))); // NOI18N
         flecha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -170,113 +227,18 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 flechaMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JFlecha, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(flecha)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtUsuario)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(txtCedula)
-                    .addComponent(txtNombre)
-                    .addComponent(txtApellido)
-                    .addComponent(txtCelular)
-                    .addComponent(txtContraseña)
-                    .addComponent(jSeparator1)
-                    .addComponent(jSeparator2)
-                    .addComponent(jSeparator3)
-                    .addComponent(jSeparator4)
-                    .addComponent(jSeparator5)
-                    .addComponent(jSeparator6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(flecha))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(558, 558, 558)
-                        .addComponent(JFlecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(flecha);
+        flecha.setBounds(27, 21, 30, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

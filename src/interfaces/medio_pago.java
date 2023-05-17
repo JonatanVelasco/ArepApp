@@ -5,6 +5,7 @@
 package interfaces;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 /**
  *
@@ -17,6 +18,10 @@ public class medio_pago extends javax.swing.JInternalFrame {
      */
     public medio_pago() {
         initComponents();
+        
+        this.setSize(new Dimension(755, 500));
+
+        this.setMinimumSize(new Dimension(755, 500));
     }
 
     /**

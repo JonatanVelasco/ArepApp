@@ -21,9 +21,9 @@ public class Menu extends javax.swing.JFrame {
         checkUser();
         pack();
 
-        this.setSize(new Dimension(1200, 695));
+        this.setSize(new Dimension(1200, 680));
 
-        this.setMinimumSize(new Dimension(1200, 695));
+        this.setMinimumSize(new Dimension(1200, 680));
     }
 
     public static void checkUser() {
@@ -99,7 +99,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arepas-caseras.jpg"))); // NOI18N
         escritorio.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 670);
+        jLabel1.setBounds(0, 0, 1200, 660);
 
         gestionAdmin.setText("Gestión administrador");
 
@@ -207,9 +207,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
         );
 
         pack();

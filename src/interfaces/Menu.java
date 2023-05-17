@@ -3,6 +3,7 @@ package interfaces;
 import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.*;
 
@@ -20,6 +21,9 @@ public class Menu extends javax.swing.JFrame {
         checkUser();
         pack();
 
+        this.setSize(new Dimension(1200, 695));
+
+        this.setMinimumSize(new Dimension(1200, 695));
     }
 
     public static void checkUser() {
@@ -63,6 +67,7 @@ public class Menu extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         bton_arepapp = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jBarra = new javax.swing.JMenuBar();
         gestionAdmin = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -81,31 +86,20 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        bton_arepapp.setBackground(new java.awt.Color(204, 102, 0));
+        bton_arepapp.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         bton_arepapp.setText("AREPAPP");
         bton_arepapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bton_arepappActionPerformed(evt);
             }
         });
+        escritorio.add(bton_arepapp);
+        bton_arepapp.setBounds(240, 240, 280, 40);
 
-        escritorio.setLayer(bton_arepapp, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(351, 351, 351)
-                .addComponent(bton_arepapp, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(565, Short.MAX_VALUE))
-        );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(bton_arepapp, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(377, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arepas-caseras.jpg"))); // NOI18N
+        escritorio.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1200, 670);
 
         gestionAdmin.setText("Gestión administrador");
 
@@ -209,11 +203,13 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -327,6 +323,7 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     public static javax.swing.JMenu gestionAdmin;
     private javax.swing.JMenuBar jBarra;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;

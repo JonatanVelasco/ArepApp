@@ -5,6 +5,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,6 +25,9 @@ public class Entregas extends javax.swing.JInternalFrame {
         String[] columnNames = {"codigo", "fecha", "hora", "metodopago", "total", "cedula_usuario", "num_doc_domiciliario", "estado", "direccion_envio", "observacion_pedido", "observacion_entrega"};
         modelo = new DefaultTableModel(null, columnNames);
         consultar();
+        this.setSize(new Dimension(1181, 526));
+
+        this.setMinimumSize(new Dimension(1181, 526));
     }
 
     /**
@@ -37,14 +41,6 @@ public class Entregas extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_codigo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txt_estado = new javax.swing.JTextField();
-        bto_actualizar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        txt_obvs = new javax.swing.JTextField();
-        bto_enviar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txt_dinero = new javax.swing.JTextField();
@@ -52,11 +48,20 @@ public class Entregas extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txt_codigo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txt_estado = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        txt_obvs = new javax.swing.JTextField();
+        bto_actualizar = new javax.swing.JButton();
+        bto_enviar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setPreferredSize(new java.awt.Dimension(1163, 532));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
@@ -70,7 +75,7 @@ public class Entregas extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 1165, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 1170, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,95 +86,24 @@ public class Entregas extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1165, 193);
-
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Código");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(6, 199, 65, 26);
-
-        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_codigoActionPerformed(evt);
-            }
-        });
-        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_codigoKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_codigo);
-        txt_codigo.setBounds(77, 202, 100, 22);
-
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Estado");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(195, 202, 53, 20);
-
-        txt_estado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_estadoActionPerformed(evt);
-            }
-        });
-        txt_estado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_estadoKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_estado);
-        txt_estado.setBounds(254, 202, 99, 22);
-
-        bto_actualizar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_actualizar.setText("Actualizar");
-        bto_actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bto_actualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bto_actualizar);
-        bto_actualizar.setBounds(359, 237, 89, 27);
-
-        jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jTextField1.setText("Observaciones");
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(359, 199, 116, 26);
-
-        txt_obvs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_obvsActionPerformed(evt);
-            }
-        });
-        txt_obvs.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_obvsKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_obvs);
-        txt_obvs.setBounds(493, 202, 261, 22);
-
-        bto_enviar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        bto_enviar.setText("Enviar");
-        bto_enviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bto_enviarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bto_enviar);
-        bto_enviar.setBounds(760, 199, 72, 27);
+        jPanel1.setBounds(0, 0, 1170, 193);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Dinero pago");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(106, 261, 76, 20);
 
         txt_dinero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_dineroKeyTyped(evt);
             }
         });
+        jPanel2.add(txt_dinero);
+        txt_dinero.setBounds(188, 261, 106, 22);
 
         jButton1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jButton1.setText("Depositar");
@@ -178,6 +112,8 @@ public class Entregas extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(312, 258, 89, 27);
 
         jScrollPane1.setHorizontalScrollBar(null);
 
@@ -197,37 +133,87 @@ public class Entregas extends javax.swing.JInternalFrame {
 
         jScrollPane3.setViewportView(jScrollPane1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 41, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1129, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_dinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(79, 79, 79))
-        );
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(41, 103, 1129, 137);
+
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Código");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(50, 20, 65, 26);
+
+        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_codigoActionPerformed(evt);
+            }
+        });
+        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txt_codigo);
+        txt_codigo.setBounds(120, 20, 100, 30);
+
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Estado");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(300, 20, 53, 30);
+
+        txt_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_estadoActionPerformed(evt);
+            }
+        });
+        txt_estado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_estadoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txt_estado);
+        txt_estado.setBounds(360, 20, 99, 30);
+
+        jTextField1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jTextField1.setText("Observaciones");
+        jPanel2.add(jTextField1);
+        jTextField1.setBounds(470, 20, 116, 30);
+
+        txt_obvs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_obvsActionPerformed(evt);
+            }
+        });
+        txt_obvs.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_obvsKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txt_obvs);
+        txt_obvs.setBounds(630, 20, 261, 30);
+
+        bto_actualizar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        bto_actualizar.setText("Actualizar");
+        bto_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bto_actualizarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bto_actualizar);
+        bto_actualizar.setBounds(500, 60, 89, 27);
+
+        bto_enviar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        bto_enviar.setText("Enviar");
+        bto_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bto_enviarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bto_enviar);
+        bto_enviar.setBounds(900, 20, 72, 27);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(-40, 190, 1170, 410);
+        jPanel2.setBounds(-40, 190, 1210, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

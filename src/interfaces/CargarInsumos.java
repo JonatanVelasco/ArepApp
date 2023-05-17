@@ -1,6 +1,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
@@ -35,6 +36,10 @@ public class CargarInsumos extends javax.swing.JInternalFrame {
         l_categoria.setVisible(false);
         cbo_categoria.setVisible(false);
         bto_guardarCambios.setVisible(false);
+        
+        this.setSize(new Dimension(1045, 547));
+
+        this.setMinimumSize(new Dimension(1045, 547));
 
     }
 

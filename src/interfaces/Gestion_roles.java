@@ -1,6 +1,7 @@
 package interfaces;
 
 import conexion.ConexionBD;
+import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -16,27 +17,30 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
         String[] columnNames = {"codigo","nombre"};
         modelo = new DefaultTableModel(null, columnNames);
         consultar();
+        this.setSize(new Dimension(892, 415));
+
+        this.setMinimumSize(new Dimension(892, 415));
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txt_texto = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        txt_codigo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txt_idmodificar = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txt_newrol = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         bto_añadir = new javax.swing.JButton();
         btomodificar = new javax.swing.JButton();
+        txt_newrol = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_idmodificar = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        txt_texto = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txt_codigo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -44,23 +48,86 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
         setResizable(true);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel1.setText("Cargo");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(6, 205, 48, 24);
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        txt_texto.addActionListener(new java.awt.event.ActionListener() {
+        jLabel8.setBackground(new java.awt.Color(153, 204, 255));
+        jLabel8.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("GESTION DE ROLES");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(67, 67, 67))
+        );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 6, 880, 140);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        bto_añadir.setText("Añadir");
+        bto_añadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_textoActionPerformed(evt);
+                bto_añadirActionPerformed(evt);
             }
         });
-        txt_texto.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel2.add(bto_añadir);
+        bto_añadir.setBounds(80, 140, 72, 23);
+
+        btomodificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btomodificar.setText("Modificar");
+        btomodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btomodificarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btomodificar);
+        btomodificar.setBounds(700, 120, 87, 27);
+
+        txt_newrol.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_textoKeyTyped(evt);
+                txt_newrolKeyTyped(evt);
             }
         });
-        getContentPane().add(txt_texto);
-        txt_texto.setBounds(63, 207, 80, 22);
+        jPanel2.add(txt_newrol);
+        txt_newrol.setBounds(520, 120, 150, 22);
+
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("digite el codigo del usuario que desea modificar su rol ");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(510, 10, 353, 20);
+
+        txt_idmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idmodificarActionPerformed(evt);
+            }
+        });
+        txt_idmodificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_idmodificarKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txt_idmodificar);
+        txt_idmodificar.setBounds(520, 40, 170, 30);
+
+        jLabel7.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("introduzca el nuevo rol");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(520, 90, 150, 20);
 
         tabla.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -76,120 +143,44 @@ public class Gestion_roles extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(161, 205, 340, 140);
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(170, 30, 340, 140);
 
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel2.setText("Codigo");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(6, 247, 44, 20);
+        txt_texto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_textoActionPerformed(evt);
+            }
+        });
+        txt_texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_textoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txt_texto);
+        txt_texto.setBounds(70, 50, 80, 22);
+
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Cargo");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(20, 50, 40, 24);
 
         txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_codigoKeyTyped(evt);
             }
         });
-        getContentPane().add(txt_codigo);
-        txt_codigo.setBounds(63, 247, 80, 22);
+        jPanel2.add(txt_codigo);
+        txt_codigo.setBounds(70, 90, 80, 22);
 
-        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel5.setText("digite el codigo del usuario que desea modificar su rol ");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(6, 356, 353, 20);
-
-        txt_idmodificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_idmodificarActionPerformed(evt);
-            }
-        });
-        txt_idmodificar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_idmodificarKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_idmodificar);
-        txt_idmodificar.setBounds(6, 382, 150, 22);
-
-        jLabel7.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel7.setText("introduzca el nuevo rol");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(6, 416, 150, 20);
-
-        txt_newrol.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_newrolKeyTyped(evt);
-            }
-        });
-        getContentPane().add(txt_newrol);
-        txt_newrol.setBounds(6, 442, 150, 22);
-
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-
-        jLabel8.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel8.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("GESTION DE ROLES");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                .addGap(67, 67, 67))
-        );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 6, 678, 193);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        bto_añadir.setText("Añadir");
-        bto_añadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bto_añadirActionPerformed(evt);
-            }
-        });
-
-        btomodificar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        btomodificar.setText("Modificar");
-        btomodificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btomodificarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(bto_añadir))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btomodificar)))
-                .addContainerGap(545, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(bto_añadir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(btomodificar)
-                .addGap(27, 27, 27))
-        );
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Codigo");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(20, 90, 44, 20);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 200, 680, 330);
+        jPanel2.setBounds(-10, 140, 890, 240);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
